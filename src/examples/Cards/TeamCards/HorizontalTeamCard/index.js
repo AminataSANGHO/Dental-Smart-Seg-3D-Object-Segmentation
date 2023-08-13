@@ -1,17 +1,4 @@
-/**
-=========================================================
-* Material Kit 2 React - v2.1.0
-=========================================================
 
-* Product Page: https://www.creative-tim.com/product/material-kit-react
-* Copyright 2023 Creative Tim (https://www.creative-tim.com)
-
-Coded by www.creative-tim.com
-
- =========================================================
-
-* The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
-*/
 
 // prop-types is a library for typechecking of props
 import PropTypes from "prop-types";
@@ -24,7 +11,7 @@ import Grid from "@mui/material/Grid";
 import MKBox from "components/MKBox";
 import MKTypography from "components/MKTypography";
 
-function HorizontalTeamCard({ image, name, position, description }) {
+function HorizontalTeamCard({ image, name, position, description,icon }) {
   return (
     <Card sx={{ mt: 3 }}>
       <Grid container>
@@ -50,6 +37,7 @@ function HorizontalTeamCard({ image, name, position, description }) {
               {description}
             </MKTypography>
           </MKBox>
+          
         </Grid>
       </Grid>
     </Card>

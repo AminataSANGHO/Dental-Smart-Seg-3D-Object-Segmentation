@@ -18,7 +18,7 @@ import routes from "routes";
 import footerRoutes from "footer.routes";
 
 // Image
-import bgImage from "assets/images/illustrations/illustration-reset.jpg";
+import bgImage from "assets/images/contact-bg.png";
 
 function ContactUs() {
   return (
@@ -32,7 +32,8 @@ function ContactUs() {
       </MKBox>
       <Grid container spacing={3} alignItems="center" 
       style={{
-        background: 'linear-gradient(to bottom, #30062C 0%, #30069f 50%, #30062C 100%)'
+        background: 'linear-gradient(to bottom, #30062C 0%, #30069f 50%, #30062C 100%)',
+        paddingTop:'7rem',
       }}>
         <Grid item xs={12} lg={6}>
           <MKBox
@@ -42,7 +43,8 @@ function ContactUs() {
             borderRadius="lg"
             ml={2}
             mt={2}
-            sx={{ backgroundImage: `url(${bgImage})` }}
+            sx={{ backgroundImage: `url(${bgImage})`,
+                  backgroundRepeat: "no-repeat", }}
           />
         </Grid>
         <Grid
@@ -74,15 +76,15 @@ function ContactUs() {
               p={2}
               mx={2}
               mt={-3}
+              
             >
-              <MKTypography variant="h3" color="white">
+              <MKTypography variant="h3" color="white" >
                 Contact us
               </MKTypography>
             </MKBox>
             <MKBox p={3}>
               <MKTypography variant="body2" color="text" mb={3}>
-                For further questions, including partnership opportunities, please email
-                hello@creative-tim.com or contact using our contact form.
+                For further questions or Informations requests,contact us using our contact form.
               </MKTypography>
               <MKBox width="100%" component="form" method="post" autoComplete="off">
                 <Grid container spacing={3}>
