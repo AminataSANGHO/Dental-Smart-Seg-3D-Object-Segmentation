@@ -1,17 +1,4 @@
-/*
-=========================================================
-* Material Kit 2 React - v2.1.0
-=========================================================
 
-* Product Page: https://www.creative-tim.com/product/material-kit-react
-* Copyright 2023 Creative Tim (https://www.creative-tim.com)
-
-Coded by www.creative-tim.com
-
- =========================================================
-
-* The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
-*/
 
 // @mui material components
 import Grid from "@mui/material/Grid";
@@ -39,15 +26,14 @@ function ContactUs() {
       <MKBox position="fixed" top="0.5rem" width="100%">
         <DefaultNavbar
           routes={routes}
-          action={{
-            type: "external",
-            route: "https://www.creative-tim.com/product/material-kit-react",
-            label: "free download",
-            color: "info",
-          }}
+          // transparent
+          light
         />
       </MKBox>
-      <Grid container spacing={3} alignItems="center">
+      <Grid container spacing={3} alignItems="center" 
+      style={{
+        background: 'linear-gradient(to bottom, #30062C 0%, #30069f 50%, #30062C 100%)'
+      }}>
         <Grid item xs={12} lg={6}>
           <MKBox
             display={{ xs: "none", lg: "flex" }}

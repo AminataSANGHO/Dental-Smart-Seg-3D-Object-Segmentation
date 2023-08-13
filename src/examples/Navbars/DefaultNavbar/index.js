@@ -481,8 +481,10 @@ function DefaultNavbar({ brand, routes, transparent, light, action, sticky, rela
         left={0}
         zIndex={3}
         sx={({ palette: { transparent: transparentColor, white }, functions: { rgba } }) => ({
-          backgroundColor: transparent ? transparentColor.main : rgba(white.main, 0.8),
-          backdropFilter: transparent ? "none" : `saturate(200%) blur(30px)`,
+          backgroundColor: transparent ? transparentColor.main : "black",
+          backdropFilter: transparent ? "none" : `saturate(10%) blur(3px)`,
+          // backdropFilter: transparent ? "none" : "none",
+
         })}
       >
         

@@ -36,8 +36,7 @@ function Presentation() {
   return (
     <>
       <DefaultNavbar
-        routes={routes}
-        
+        routes={routes}        
         transparent
         light
       />
@@ -55,10 +54,11 @@ function Presentation() {
         }}
       >
         <Container>
-          <Grid container item xs={12} lg={7} justifyContent="center" mx="auto">
+          <Grid container item xs={12} lg={10} justifyContent="center" mx="auto">
             <MKTypography
               variant="h1"
               color="white"
+              textAlign='center'
               mt={-6}
               mb={1}
               sx={({ breakpoints, typography: { size } }) => ({
@@ -68,17 +68,18 @@ function Presentation() {
               })}
               fontFamily="Arial, sans-serif"
             >
-              Dental Smart Seg {" "}
+              Welcome to Dental Smart Seg<br/>
+              your intelligent solution for precise dental arcade segmentation {" "}
             </MKTypography>
             <MKTypography
               variant="body1"
               color="white"
+              opacity="0.8"
               textAlign="center"
               px={{ xs: 6, lg: 12 }}
               mt={1}
             >            
-              is an innovative dental application designed to enhance the precision 
-              and efficiency of dental arcade segmentation. With advanced image processing technology, 
+              With advanced image processing technology, 
               the app offers accurate and automated segmentation of dental arches from radiographic or 
               scanned dental images. Dental professionals can seamlessly utilize this tool to isolate 
               and define the contours of individual teeth and the overall dental arch, facilitating
