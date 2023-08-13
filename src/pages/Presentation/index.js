@@ -1,17 +1,3 @@
-/*
-=========================================================
-* Material Kit 2 React - v2.1.0
-=========================================================
-
-* Product Page: https://www.creative-tim.com/product/material-kit-react
-* Copyright 2023 Creative Tim (https://www.creative-tim.com)
-
-Coded by www.creative-tim.com
-
- =========================================================
-
-* The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
-*/
 
 // @mui material components
 import Container from "@mui/material/Container";
@@ -51,19 +37,17 @@ function Presentation() {
     <>
       <DefaultNavbar
         routes={routes}
-        action={{
-          type: "external",
-          route: "https://www.creative-tim.com/product/material-kit-react",
-          label: "free download",
-          color: "info",
-        }}
-        sticky
+        
+        transparent
+        light
       />
       <MKBox
-        minHeight="75vh"
+        minHeight="100vh"
         width="100%"
         sx={{
-          backgroundImage: `url(${bgImage})`,
+          // backgroundImage: `url(${bgImage})`,
+          background: 'linear-gradient(to bottom, #30062C 0%, #30069f 50%, #30062C 100%)',
+          // 'linear-gradient(to top, #11093D, #3F3A62)',
           backgroundSize: "cover",
           backgroundPosition: "top",
           display: "grid",
@@ -82,8 +66,9 @@ function Presentation() {
                   fontSize: size["3xl"],
                 },
               })}
+              fontFamily="Arial, sans-serif"
             >
-              Material Kit 2 React{" "}
+              Dental Smart Seg {" "}
             </MKTypography>
             <MKTypography
               variant="body1"
@@ -91,14 +76,20 @@ function Presentation() {
               textAlign="center"
               px={{ xs: 6, lg: 12 }}
               mt={1}
-            >
-              Free & Open Source Web UI Kit built over ReactJS &amp; MUI. Join over 1.6 million
-              developers around the world.
+            >            
+              is an innovative dental application designed to enhance the precision 
+              and efficiency of dental arcade segmentation. With advanced image processing technology, 
+              the app offers accurate and automated segmentation of dental arches from radiographic or 
+              scanned dental images. Dental professionals can seamlessly utilize this tool to isolate 
+              and define the contours of individual teeth and the overall dental arch, facilitating
+               comprehensive treatment planning and analysis.
             </MKTypography>
           </Grid>
         </Container>
+
+        
       </MKBox>
-      <Card
+      {/* <Card
         sx={{
           p: 2,
           mx: { xs: 2, lg: 3 },
@@ -214,10 +205,12 @@ function Presentation() {
             </Grid>
           </Container>
         </MKBox>
-      </Card>
-      <MKBox pt={6} px={1} mt={6}>
+      </Card> */}
+
+      {/* Footer */}
+      {/* <MKBox pt={6} px={1} mt={6}>
         <DefaultFooter content={footerRoutes} />
-      </MKBox>
+      </MKBox> */}
     </>
   );
 }

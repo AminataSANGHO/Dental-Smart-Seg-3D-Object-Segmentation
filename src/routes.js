@@ -40,7 +40,10 @@ Coded by www.creative-tim.com
 import Icon from "@mui/material/Icon";
 
 // @mui icons
-import GitHubIcon from "@mui/icons-material/GitHub";
+import HomeRoundedIcon from '@mui/icons-material/HomeRounded';
+import ContactsIcon from '@mui/icons-material/Contacts';
+import InfoIcon from '@mui/icons-material/Info';
+import AccountTreeRoundedIcon from '@mui/icons-material/AccountTreeRounded';
 
 // Pages
 import AboutUs from "layouts/pages/landing-pages/about-us";
@@ -70,8 +73,9 @@ import Typography from "layouts/sections/elements/typography";
 
 const routes = [
   {
-    name: "pages",
-    icon: <Icon>dashboard</Icon>,
+    // name: "pages",
+    name: "home",
+    icon: <HomeRoundedIcon/>,
     columns: 1,
     rowsPerColumn: 2,
     collapse: [
@@ -108,8 +112,8 @@ const routes = [
     ],
   },
   {
-    name: "sections",
-    icon: <Icon>view_day</Icon>,
+    name: "Segment",
+    icon: <AccountTreeRoundedIcon/>,
     collapse: [
       {
         name: "page sections",
@@ -239,8 +243,8 @@ const routes = [
     ],
   },
   {
-    name: "docs",
-    icon: <Icon>article</Icon>,
+    name: "about us",
+    icon: <InfoIcon/>,
     collapse: [
       {
         name: "getting started",
@@ -265,10 +269,32 @@ const routes = [
     ],
   },
   {
-    name: "github",
-    icon: <GitHubIcon />,
-    href: "https://www.github.com/creativetimofficial/material-kit-react",
+    name: "contact us",
+    icon: <ContactsIcon/>,
+    collapse: [
+      {
+        name: "getting started",
+        description: "All about overview, quick start, license and contents",
+        href: "https://www.creative-tim.com/learning-lab/react/quick-start/material-kit/",
+      },
+      {
+        name: "foundation",
+        description: "See our colors, icons and typography",
+        href: "https://www.creative-tim.com/learning-lab/react/colors/material-kit/",
+      },
+      {
+        name: "components",
+        description: "Explore our collection of fully designed components",
+        href: "https://www.creative-tim.com/learning-lab/react/alerts/material-kit/",
+      },
+      {
+        name: "plugins",
+        description: "Check how you can integrate our plugins",
+        href: "https://www.creative-tim.com/learning-lab/react/datepicker/material-kit/",
+      },
+    ],
   },
+  
 ];
 
 export default routes;

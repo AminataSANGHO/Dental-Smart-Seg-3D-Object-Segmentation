@@ -43,6 +43,20 @@ import DefaultNavbarMobile from "examples/Navbars/DefaultNavbar/DefaultNavbarMob
 // Material Kit 2 React base styles
 import breakpoints from "assets/theme/base/breakpoints";
 
+// Logo
+import Logo from '../../../assets/images/Logo-dark-bg.png'
+
+// Self style
+const styleHead = {
+  container: {
+    display: 'flex',
+    alignItems: 'center', // Aligner verticalement le contenu
+  },
+  logo: {
+    marginRight: '2px', // Espacement entre l'image et le texte
+  },
+};
+
 function DefaultNavbar({ brand, routes, transparent, light, action, sticky, relative, center }) {
   const [dropdown, setDropdown] = useState("");
   const [dropdownEl, setDropdownEl] = useState("");
@@ -449,8 +463,11 @@ function DefaultNavbar({ brand, routes, transparent, light, action, sticky, rela
     </Popper>
   );
 
+
+
   return (
     <Container sx={sticky ? { position: "sticky", top: 0, zIndex: 10 } : null}>
+    
       <MKBox
         py={1}
         px={{ xs: 4, sm: transparent ? 2 : 3, lg: transparent ? 0 : 2 }}
@@ -468,6 +485,7 @@ function DefaultNavbar({ brand, routes, transparent, light, action, sticky, rela
           backdropFilter: transparent ? "none" : `saturate(200%) blur(30px)`,
         })}
       >
+        
         <MKBox display="flex" justifyContent="space-between" alignItems="center">
           <MKBox
             component={Link}
@@ -476,9 +494,18 @@ function DefaultNavbar({ brand, routes, transparent, light, action, sticky, rela
             py={transparent ? 1.5 : 0.75}
             pl={relative || transparent ? 0 : { xs: 0, lg: 1 }}
           >
-            <MKTypography variant="button" fontWeight="bold" color={light ? "white" : "dark"}>
-              {brand}
-            </MKTypography>
+            <div style={styleHead.container}>
+              <img src={Logo} alt="Dental Smart Seg" width={100} style={styleHead.logo}/>
+              <MKTypography variant="button" 
+                fontWeight="bold" 
+                fontSize={24}
+                fontFamily="Georgia, sans-serif"
+                color={light ? "white" : "dark"}>
+                  
+                  {brand}
+              </MKTypography>
+            </div>
+            
           </MKBox>
           <MKBox
             color="inherit"
@@ -551,7 +578,7 @@ function DefaultNavbar({ brand, routes, transparent, light, action, sticky, rela
 
 // Setting default values for the props of DefaultNavbar
 DefaultNavbar.defaultProps = {
-  brand: "Material Kit 2",
+  brand: "Dental Smart Seg ",
   transparent: false,
   light: false,
   action: false,
