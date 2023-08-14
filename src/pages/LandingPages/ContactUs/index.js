@@ -70,7 +70,9 @@ function ContactUs() {
           >
             <MKBox
               variant="gradient"
-              bgColor="info"
+              // bgColor="#30062C"
+              sx={{
+                background: 'linear-gradient(to bottom, #30062C 0%, #30069f 50%, #30062C 100%)'}}
               coloredShadow="info"
               borderRadius="lg"
               p={2}
@@ -117,8 +119,8 @@ function ContactUs() {
                     />
                   </Grid>
                 </Grid>
-                <Grid container item justifyContent="center" xs={12} mt={5} mb={2}>
-                  <MKButton type="submit" variant="gradient" color="info">
+                <Grid container item justifyContent="center" xs={12} mt={5} mb={2} >
+                  <MKButton type="submit" variant="gradient" color="dark">
                     Send Message
                   </MKButton>
                 </Grid>
@@ -127,9 +129,9 @@ function ContactUs() {
           </MKBox>
         </Grid>
       </Grid>
-      <MKBox pt={6} px={1} mt={6}>
+      {/* <MKBox pt={6} px={1} mt={6}>
         <DefaultFooter content={footerRoutes} />
-      </MKBox>
+      </MKBox> */}
     </>
   );
 }

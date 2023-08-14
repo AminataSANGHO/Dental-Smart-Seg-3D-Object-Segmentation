@@ -31,21 +31,21 @@ function AboutUs() {
   return (
     <>
       <DefaultNavbar
-        routes={routes}
-        
-        transparent
+        routes={routes}        
+        // transparent
         light
       />
       <MKBox
         minHeight="75vh"
         width="100%"
         sx={{
-          backgroundImage: ({ functions: { linearGradient, rgba }, palette: { gradients } }) =>
-            `${linearGradient(
-              rgba(gradients.dark.main, 0.6),
-              rgba(gradients.dark.state, 0.6)
-            )}, url(${bgImage})`,
-          backgroundSize: "cover",
+          // backgroundImage: ({ functions: { linearGradient, rgba }, palette: { gradients } }) =>
+          //   `${linearGradient(
+          //     rgba(gradients.dark.main, 0.6),
+          //     rgba(gradients.dark.state, 0.6)
+          //   )}, url(${bgImage})`,
+          // backgroundSize: "cover",
+          background: 'linear-gradient(to bottom, #30062C 0%, #30069f 50%, #30062C 100%)',          
           backgroundPosition: "center",
           display: "grid",
           placeItems: "center",
@@ -101,6 +101,7 @@ function AboutUs() {
             </MKBox> */}
           </Grid>
         </Container>
+        
       </MKBox>
       <Card
         sx={{
@@ -109,6 +110,7 @@ function AboutUs() {
           mt: -8,
           mb: 4,
           boxShadow: ({ boxShadows: { xxl } }) => xxl,
+          
         }}
       >
         {/* <Information /> */}

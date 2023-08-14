@@ -22,7 +22,9 @@ function Team() {
     <MKBox
       component="section"
       variant="gradient"
-      bgColor="dark"
+      // bgColor="dark"
+      sx={{background: 'linear-gradient(to bottom, #30062C 0%, #30069f 50%, #30062C 100%)',
+        }}
       position="relative"
       py={6}
       px={{ xs: 2, lg: 0 }}

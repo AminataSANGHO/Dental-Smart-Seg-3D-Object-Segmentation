@@ -28,7 +28,15 @@ import MKTypography from "components/MKTypography";
 // Material Kit 2 React base styles
 import colors from "assets/theme/base/colors";
 
-function View({ children, code, title, height, ...rest }) {
+// Project imports
+import CenteredCard from "./components/centeredCard"
+
+// Images
+import objImg from "./../../../../assets/images/obj.jpg"
+import stlImg from "./../../../../assets/images/stl.jpg"
+// import objImg from "./../../../../assets/images/obj.jpg"
+
+function Frame({height, ...rest }) {
   const { grey } = colors;
 
   const [activeTab, setActiveTab] = useState(0);
@@ -50,7 +58,7 @@ function View({ children, code, title, height, ...rest }) {
       sx={{ overflow: "hidden" }}
       {...rest}
     >
-      <MKBox
+      {/* <MKBox
         px={3}
         sx={{
           borderBottom: ({ borders: { borderWidth, borderColor } }) =>
@@ -94,7 +102,8 @@ function View({ children, code, title, height, ...rest }) {
             </AppBar>
           </Grid>
         </Grid>
-      </MKBox>
+      </MKBox> */}
+
       <MKBox display={activeTab === 0 ? "block" : "none"}>
         <MKBox width="100%" p={3}>
           <MKBox
@@ -105,11 +114,51 @@ function View({ children, code, title, height, ...rest }) {
             borderRadius="xl"
             sx={{ overflowX: "hidden", overflowY: "scroll" }}
           >
-            {children}
+           <Grid
+            container
+            direction="column"
+            justifyContent="center" // Center vertically
+            alignItems="center" // Center horizontally
+            spacing={2}
+            >
+                <Grid item style={{ marginTop: '5rem' }}>
+                    <MKTypography variant="h1">UpLoad</MKTypography>
+                </Grid>
+                <Grid item style={{ marginTop: '1rem' }}>
+                    <MKTypography variant="body1" color="text">
+                    You can load these types of 3D files.
+                    </MKTypography>
+                </Grid>
+                <Grid container spacing={2} justifyContent="center" // Center vertically
+                            alignItems="center" style={{ marginTop: '5rem' }}>
+                    <Grid item xs={3} lg={2}>
+                        <CenteredCard
+                        image={objImg}
+                        title="OBJ"
+                        // description="Website visitors today demand a frictionless user experience — especially when using search. Because of the high standards."
+                        />
+                    </Grid>
+                    <Grid item xs={3} lg={2}>
+                        <CenteredCard
+                        image={stlImg}
+                        title="OBJ"
+                        // description="Website visitors today demand a frictionless user experience — especially when using search. Because of the high standards."
+                        />
+                    </Grid>
+                    <Grid item xs={3} lg={2}>
+                        <CenteredCard
+                        image="https://images.unsplash.com/photo-1544717302-de2939b7ef71?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80"
+                        title="OBJ"
+                        // description="Website visitors today demand a frictionless user experience — especially when using search. Because of the high standards."
+                        />
+                    </Grid>
+                </Grid>
+                
+            </Grid>
           </MKBox>
         </MKBox>
       </MKBox>
-      <MKBox display={activeTab === 1 ? "block" : "none"} p={3}>
+      {/* <MKBox display={activeTab === 1 ? "block" : "none"} p={3}>
         <MKBox
           bgColor="grey-100"
           position="relative"
@@ -159,22 +208,22 @@ function View({ children, code, title, height, ...rest }) {
             {code}
           </SyntaxHighlighter>
         </MKBox>
-      </MKBox>
+      </MKBox> */}
     </MKBox>
   );
 }
 
-// Setting default props for the View
-View.defaultProps = {
+// Setting default props for the Frame
+Frame.defaultProps = {
   height: "auto",
 };
 
-// Typechecking props for the View
-View.propTypes = {
-  children: PropTypes.node.isRequired,
-  code: PropTypes.node.isRequired,
-  title: PropTypes.string.isRequired,
+// Typechecking props for the Frame
+Frame.propTypes = {
+//   children: PropTypes.node.isRequired,
+//   code: PropTypes.node.isRequired,
+//   title: PropTypes.string.isRequired,
   height: PropTypes.string,
 };
 
-export default View;
+export default Frame;

@@ -18,6 +18,11 @@ import AppBar from "@mui/material/AppBar";
 import Tabs from "@mui/material/Tabs";
 import Tab from "@mui/material/Tab";
 import Slide from "@mui/material/Slide";
+import Icon from "@mui/material/Icon";
+
+import FileUploadRoundedIcon from '@mui/icons-material/FileUploadRounded';
+import DownloadForOfflineRoundedIcon from '@mui/icons-material/DownloadForOfflineRounded';
+import AccountTreeRoundedIcon from '@mui/icons-material/AccountTreeRounded';
 
 // Material Kit 2 React components
 import MKBox from "components/MKBox";
@@ -28,7 +33,15 @@ import MKTypography from "components/MKTypography";
 // Material Kit 2 React base styles
 import colors from "assets/theme/base/colors";
 
-function View({ children, code, title, height, ...rest }) {
+// Project imports
+import CenteredCard from "./centeredCard"
+
+// Images
+import initial from "./../../../../../assets/images/initial.png"
+import stlImg from "./../../../../../assets/images/stl.jpg"
+// import objImg from "./../../../../assets/images/obj.jpg"
+
+function Visualized({height, ...rest }) {
   const { grey } = colors;
 
   const [activeTab, setActiveTab] = useState(0);
@@ -50,7 +63,7 @@ function View({ children, code, title, height, ...rest }) {
       sx={{ overflow: "hidden" }}
       {...rest}
     >
-      <MKBox
+      {/* <MKBox
         px={3}
         sx={{
           borderBottom: ({ borders: { borderWidth, borderColor } }) =>
@@ -94,7 +107,8 @@ function View({ children, code, title, height, ...rest }) {
             </AppBar>
           </Grid>
         </Grid>
-      </MKBox>
+      </MKBox> */}
+
       <MKBox display={activeTab === 0 ? "block" : "none"}>
         <MKBox width="100%" p={3}>
           <MKBox
@@ -103,78 +117,64 @@ function View({ children, code, title, height, ...rest }) {
             height={height}
             maxHeight="40rem"
             borderRadius="xl"
-            sx={{ overflowX: "hidden", overflowY: "scroll" }}
+            sx={{ overflowX: "scroll", overflowY: "scroll" }}
+            style={{ paddingLeft: '10%' }}
           >
-            {children}
+           <Grid
+                container
+                direction="row" // Change direction to "row"
+                justifyContent="space-between" // Align items on the left and right
+                alignItems="center" // Center vertically
+                spacing={5}
+                style={{ marginTop: '0.1rem' }}
+            >
+                <Grid item xs={12} lg={6} >
+                <img src={initial} alt="image" style={{ borderRadius: "15px" }} width="140%"/>
+                </Grid>
+                <Grid item xs={12} lg={4} container direction="column" justifyContent="center" alignItems="flex-start" style={{ paddingLeft: '10%' }}>
+                <MKButton size="large" sx={{
+                        backgroundImage: 'linear-gradient(to bottom, #30062C 0%, #30069f 50%, #30062C 100%)',
+                        color: '#ffffff', // Text color
+                        mb: 5, // Margin bottom
+                    }}>
+                    <FileUploadRoundedIcon sx={{ mr: 4 }}/>
+                    Upload
+                </MKButton>
+                <MKButton color="info" size="large" sx={{ backgroundImage: 'linear-gradient(to bottom, #30062C 0%, #30069f 50%, #30062C 100%)',
+                        color: '#ffffff', // Text color
+                        mb: 5, // Margin bottom
+                    }}>
+                    <AccountTreeRoundedIcon sx={{ mr: 3 }}/>
+                    Segment
+                </MKButton>
+                <MKButton color="info" size="large" sx={{backgroundImage: 'linear-gradient(to bottom, #30062C 0%, #30069f 50%, #30062C 100%)',
+                        color: '#ffffff', // Text color
+                        mb: 5, // Margin bottom
+                        }}>
+                    <DownloadForOfflineRoundedIcon sx={{ mr: 2 }}/>
+                    Download
+                </MKButton>
+                </Grid>
+            </Grid>
           </MKBox>
         </MKBox>
       </MKBox>
-      <MKBox display={activeTab === 1 ? "block" : "none"} p={3}>
-        <MKBox
-          bgColor="grey-100"
-          position="relative"
-          width="100%"
-          borderRadius="xl"
-          sx={{ overflow: "hidden" }}
-        >
-          <CopyToClipboard text={code}>
-            <MKButton
-              variant="gradient"
-              color="dark"
-              size="small"
-              sx={{ position: "absolute", top: "0.5rem", right: "0.5rem" }}
-              onClick={() => setSuccess(true)}
-            >
-              <MKBox color="white" mr={0.5} className="fas fa-copy" /> Copy
-            </MKButton>
-          </CopyToClipboard>
-          <Slide direction="down" in={success} unmountOnExit>
-            <MKBox position="absolute" top="0.5rem" left={0} width="100%">
-              <MKAlert
-                width="25%"
-                mx="auto"
-                color="success"
-                sx={{ minHeight: "2.5rem !important", py: 1, justifyContent: "center" }}
-              >
-                <MKTypography variant="body2" color="white" fontWeight="regular">
-                  Code successfully copied!
-                </MKTypography>
-              </MKAlert>
-            </MKBox>
-          </Slide>
-          <SyntaxHighlighter
-            language="jsx"
-            style={prism}
-            showLineNumbers
-            customStyle={{
-              height,
-              maxHeight: "40rem",
-              fontSize: "1rem",
-              backgroundColor: grey[100],
-              padding: "1rem 1rem 1rem 0.25rem",
-              overflowY: "scroll",
-              margin: 0,
-            }}
-          >
-            {code}
-          </SyntaxHighlighter>
-        </MKBox>
-      </MKBox>
+      
     </MKBox>
   );
 }
 
-// Setting default props for the View
-View.defaultProps = {
+// Setting default props for the Visualized
+Visualized.defaultProps = {
   height: "auto",
 };
 
-// Typechecking props for the View
-View.propTypes = {
-  children: PropTypes.node.isRequired,
-  code: PropTypes.node.isRequired,
-  title: PropTypes.string.isRequired,
+// Typechecking props for the Visualized
+Visualized.propTypes = {
+//   children: PropTypes.node.isRequired,
+//   code: PropTypes.node.isRequired,
+//   title: PropTypes.string.isRequired,
   height: PropTypes.string,
 };
 
-export default View;
+export default Visualized;

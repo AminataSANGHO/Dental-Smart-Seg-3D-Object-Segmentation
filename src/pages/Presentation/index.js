@@ -8,6 +8,10 @@ import Card from "@mui/material/Card";
 import MKBox from "components/MKBox";
 import MKTypography from "components/MKTypography";
 import MKSocialButton from "components/MKSocialButton";
+import MKButton from "components/MKButton";
+
+import FileUploadRoundedIcon from '@mui/icons-material/FileUploadRounded';
+import HelpOutlineIcon from '@mui/icons-material/HelpOutline';
 
 // Material Kit 2 React examples
 import DefaultNavbar from "examples/Navbars/DefaultNavbar";
@@ -31,6 +35,9 @@ import footerRoutes from "footer.routes";
 
 // Images
 import bgImage from "assets/images/bg-presentation.jpg";
+
+import SimpleModal from "./components/modal";
+
 
 function Presentation() {
   return (
@@ -67,6 +74,7 @@ function Presentation() {
                 },
               })}
               fontFamily="Arial, sans-serif"
+              style={{ marginTop: '10rem' }}
             >
               Welcome to Dental Smart Seg<br/>
               your intelligent solution for precise dental arcade segmentation {" "}
@@ -86,9 +94,23 @@ function Presentation() {
                comprehensive treatment planning and analysis.
             </MKTypography>
           </Grid>
+
+          <Grid item style={{ marginTop: '5rem', alignItems:'center' }}>
+          {/* <MKButton size="large" sx={{
+                        backgroundImage: 'linear-gradient(to bottom, #30062C 0%, #30069f 50%, #30062C 100%)',
+                        color: '#ffffff', // Text color
+                        mb: 5, // Margin bottom
+                        borderRadius: '50px',
+                        
+                    }}>
+                    <HelpOutlineIcon sx={{ mr: 2 }}/>
+                    Why Segment
+                </MKButton> */}
+                <SimpleModal/>
+          </Grid>
         </Container>
 
-        
+       
       </MKBox>
       {/* <Card
         sx={{
