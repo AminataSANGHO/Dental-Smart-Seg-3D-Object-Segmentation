@@ -37,7 +37,7 @@ function Presentation() {
     <>
       <DefaultNavbar
         routes={routes}        
-        transparent
+        // transparent
         light
       />
       <MKBox

@@ -15,12 +15,12 @@ function PageHeaders() {
     <BaseLayout
       title="Page Headers"
       breadcrumb={[
-        { label: "Page Sections", route: "/sections/page-sections/page-headers" },
-        { label: "Page Headers" },
+        { label: "Segment", route: "/sections/page-sections/page-headers" },
+        { label: "Page Download" },
       ]}
     >
-      <View title="Header 1" code={headerOneCode} height="40rem">
-        <HeaderOne />
+      <View title="Download" code={headerOneCode} height="40rem">
+        {/* <HeaderOne /> */}
       </View>
     </BaseLayout>
   );
