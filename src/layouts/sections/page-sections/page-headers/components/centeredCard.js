@@ -15,10 +15,36 @@ import MKBox from "components/MKBox";
 import MKTypography from "components/MKTypography";
 import MKButton from "components/MKButton";
 
-function CenteredCard({ image, title, description}) {
+function CenteredCard({ image, title }) {
+  // const handleDownload = async () => {
+  //   try {
+  //     const response = await fetch(`/api/download-file?filename=${filename}`, {
+  //       method: 'GET',
+  //     });
+
+  //     if (response.ok) {
+  //       const blob = await response.blob();
+  //       const url = window.URL.createObjectURL(blob);
+  //       const a = document.createElement('a');
+  //       a.href = url;
+  //       a.download = `${filename}.file`;
+  //       a.click();
+  //     }
+  //   } catch (error) {
+  //     console.error('Error downloading file:', error);
+  //   }
+  // };
+
+  // const handleInputChange = (event) => {
+  //   const file = event.target.files[0];
+  //   if (file) {
+  //     handleFileUpload(file);
+  //     alert(`File uploaded: ${file.name}`);
+  //   }
+  // };
   return (
     <Card>
-      <MKBox position="relative" borderRadius="lg" mx={2} mt={-3}>
+      <MKBox position="relative" borderRadius="lg" mx={2} mt={-3} >
         <MKBox
           component="img"
           src={image}
@@ -49,9 +75,14 @@ function CenteredCard({ image, title, description}) {
           {title}
         </MKTypography>
         <MKBox mt={1} mb={3}>
-          <MKTypography variant="body2" component="p" color="text">
-            {description}
-          </MKTypography>
+          {/* <MKTypography variant="body2" component="p" color="text">
+            <input
+                type="file"
+                id={`file-upload-${title}`}
+                style={{ display: 'none' }}
+                onChange={handleInputChange}
+              />
+          </MKTypography> */}
         </MKBox>        
       </MKBox>
     </Card>

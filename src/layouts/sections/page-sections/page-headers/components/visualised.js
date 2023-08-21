@@ -33,15 +33,11 @@ import MKTypography from "components/MKTypography";
 // Material Kit 2 React base styles
 import colors from "assets/theme/base/colors";
 
-// Project imports
-import CenteredCard from "./centeredCard"
 
 // Images
 import initial from "./../../../../../assets/images/initial.png"
-import stlImg from "./../../../../../assets/images/stl.jpg"
-// import objImg from "./../../../../assets/images/obj.jpg"
 
-function Visualized({height, ...rest }) {
+function Visualized({height,uploadedFile,activeReload , ...rest }) {
   const { grey } = colors;
 
   const [activeTab, setActiveTab] = useState(0);
@@ -53,6 +49,11 @@ function Visualized({height, ...rest }) {
     setTimeout(() => setSuccess(false), 3000);
   }, [success]);
 
+  // const handleReload = () => {
+  //   const data = true;
+  //   activeReload(data); 
+  // };
+
   return (
     <MKBox
       width="100%"
@@ -63,51 +64,7 @@ function Visualized({height, ...rest }) {
       sx={{ overflow: "hidden" }}
       {...rest}
     >
-      {/* <MKBox
-        px={3}
-        sx={{
-          borderBottom: ({ borders: { borderWidth, borderColor } }) =>
-            `${borderWidth[1]} solid ${borderColor}`,
-        }}
-      >
-        <Grid container spacing={2} justifyContent="space-between" py={1}>
-          <Grid item xs={12} lg={3}>
-            <MKTypography variant="body1" pt={0.5}>
-              {title}
-            </MKTypography>
-          </Grid>
-          <Grid item xs={12} lg={3}>
-            <AppBar position="static">
-              <Tabs value={activeTab} onChange={handleTabType}>
-                <Tab
-                  icon={
-                    <MKBox
-                      component="i"
-                      color="dark"
-                      mr={1.25}
-                      sx={{ fontSize: ({ typography: { size } }) => size.sm }}
-                      className="fas fa-desktop"
-                    />
-                  }
-                  label="Preview"
-                />
-                <Tab
-                  icon={
-                    <MKBox
-                      component="i"
-                      color="dark"
-                      mr={1.25}
-                      sx={{ fontSize: ({ typography: { size } }) => size.sm }}
-                      className="fas fa-code"
-                    />
-                  }
-                  label="Code"
-                />
-              </Tabs>
-            </AppBar>
-          </Grid>
-        </Grid>
-      </MKBox> */}
+     
 
       <MKBox display={activeTab === 0 ? "block" : "none"}>
         <MKBox width="100%" p={3}>
@@ -135,8 +92,9 @@ function Visualized({height, ...rest }) {
                 <MKButton size="large" sx={{
                         backgroundImage: 'linear-gradient(to bottom, #30062C 0%, #30069f 50%, #30062C 100%)',
                         color: '#ffffff', // Text color
-                        mb: 5, // Margin bottom
-                    }}>
+                        mb: 5, // Margin bottom                       
+                    }}
+                    onClick={() => activeReload(true)}>
                     <FileUploadRoundedIcon sx={{ mr: 4 }}/>
                     Upload
                 </MKButton>
