@@ -74,7 +74,7 @@ function Visualized({height,uploadedFile,activeReload , ...rest }) {
             height={height}
             maxHeight="40rem"
             borderRadius="xl"
-            sx={{ overflowX: "scroll", overflowY: "scroll" }}
+            // sx={{ overflowX: "scroll", overflowY: "scroll" }}
             style={{ paddingLeft: '10%' }}
           >
            <Grid
