@@ -1,7 +1,7 @@
 
 
 import { useState, useEffect } from "react";
-
+import axios from 'axios';
 // prop-types is a library for type checking of props
 import PropTypes from "prop-types";
 
@@ -37,6 +37,10 @@ import colors from "assets/theme/base/colors";
 // Images
 import initial from "./../../../../../assets/images/initial.png"
 
+// import display from "./display"
+// import ThreeScene from "./display";
+// import VTKViewer from "./myVTK";
+
 function Visualized({height,uploadedFile,activeReload , ...rest }) {
   const { grey } = colors;
 
@@ -49,10 +53,28 @@ function Visualized({height,uploadedFile,activeReload , ...rest }) {
     setTimeout(() => setSuccess(false), 3000);
   }, [success]);
 
-  // const handleReload = () => {
-  //   const data = true;
-  //   activeReload(data); 
-  // };
+
+  const handlePrediction = () => {
+    // setFileUploaded(true);
+    const formData = new FormData();
+    formData.append('URL', uploadedFile);
+
+    axios({
+      method: "POST",
+      url: "http://127.0.0.1:8000/predictor",
+      headers: {
+        "Content-Type": "multipart/form-data",
+      },
+      data: formData
+    })
+    .then(response => {
+      console.log('File Url sent successfully', response);
+      
+    })
+      .catch((err) => console.log('Error sending image URL:', err));
+  };
+
+
 
   return (
     <MKBox
@@ -74,7 +96,7 @@ function Visualized({height,uploadedFile,activeReload , ...rest }) {
             height={height}
             maxHeight="40rem"
             borderRadius="xl"
-            // sx={{ overflowX: "scroll", overflowY: "scroll" }}
+            sx={{ overflowX: "scroll", overflowY: "scroll" }}
             style={{ paddingLeft: '10%' }}
           >
            <Grid
@@ -86,7 +108,10 @@ function Visualized({height,uploadedFile,activeReload , ...rest }) {
                 style={{ marginTop: '0.1rem' }}
             >
                 <Grid item xs={12} lg={6} >
-                <img src={initial} alt="image" style={{ borderRadius: "15px" }} width="140%"/>
+
+                    {/* <display fil/>    */}
+                    {/* <VTKViewer vtkFileURL={uploadedFile}/> */}
+                    {/* <img src={imageUrl} alt="image" style={{ borderRadius: "15px" }} width="140%"/> */}
                 </Grid>
                 <Grid item xs={12} lg={4} container direction="column" justifyContent="center" alignItems="flex-start" style={{ paddingLeft: '10%' }}>
                 <MKButton size="large" sx={{
@@ -101,14 +126,17 @@ function Visualized({height,uploadedFile,activeReload , ...rest }) {
                 <MKButton color="info" size="large" sx={{ backgroundImage: 'linear-gradient(to bottom, #30062C 0%, #30069f 50%, #30062C 100%)',
                         color: '#ffffff', // Text color
                         mb: 5, // Margin bottom
-                    }}>
+                    }}
+                    onClick={handlePrediction}>
                     <AccountTreeRoundedIcon sx={{ mr: 3 }}/>
                     Segment
                 </MKButton>
                 <MKButton color="info" size="large" sx={{backgroundImage: 'linear-gradient(to bottom, #30062C 0%, #30069f 50%, #30062C 100%)',
                         color: '#ffffff', // Text color
                         mb: 5, // Margin bottom
-                        }}>
+                        }}
+                        onClick={() => console.log(uploadedFile)}
+                        >
                     <DownloadForOfflineRoundedIcon sx={{ mr: 2 }}/>
                     Download
                 </MKButton>
