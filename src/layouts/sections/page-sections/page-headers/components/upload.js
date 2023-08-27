@@ -31,6 +31,8 @@ import colors from "assets/theme/base/colors";
 // Project imports
 import CenteredCard from "./centeredCard"
 
+import axios from "axios";
+
 // Images
 import objImg from "./../../../../../assets/images/obj.jpg"
 import stlImg from "./../../../../../assets/images/stl.jpg"
@@ -48,15 +50,30 @@ function Upload({height,handleFileUpload , ...rest}) {
     setTimeout(() => setSuccess(false), 3000);
   }, [success]);
 
-  
-
   const handleInputChange = (event) => {
     const file = event.target.files[0];
     if (file) {
-      handleFileUpload(file);
-      alert(`File uploaded: ${file.name}`);
+      const formData = new FormData();
+      formData.append('file', file);
+      
+      axios
+          .post('http://127.0.0.1:8000/api/upload', formData, {
+            headers: {
+                "Content-Type": "multipart/form-data",
+            }
+          })                    
+          .then(response => {
+            console.log('File Url sent successfully', response.data.path);
+            handleFileUpload(response.data.path);
+          })
+          .catch(error => {
+              console.log('error', error)
+          })
+
     }
   };
+
+
   return (
     <MKBox
       width="100%"
