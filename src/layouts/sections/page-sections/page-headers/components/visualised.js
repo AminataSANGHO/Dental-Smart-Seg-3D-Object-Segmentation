@@ -1,7 +1,7 @@
 
 
 import { useState, useEffect } from "react";
-
+import axios from 'axios';
 // prop-types is a library for type checking of props
 import PropTypes from "prop-types";
 
@@ -44,6 +44,10 @@ import vtkRenderWindow from '@kitware/vtk.js/Rendering/Core/RenderWindow'
 import vtkInteractorStyleTrackballCamera from '@kitware/vtk.js/Interaction/Style/InteractorStyleTrackballCamera'
 import vtkRenderer from '@kitware/vtk.js/Rendering/Core/Renderer'
 import vtkRenderWindowGL from '@kitware/vtk.js/Rendering/OpenGL/RenderWindow'
+
+// import display from "./display"
+// import ThreeScene from "./display";
+// import VTKViewer from "./myVTK";
 
 function Visualized({height,uploadedFile,activeReload , ...rest }) {
   const { grey } = colors;
@@ -106,34 +110,10 @@ function Visualized({height,uploadedFile,activeReload , ...rest }) {
     visualizeObj(currentFile);
   }, [success , currentFile]);
 
-  const handlePrediction = () => {
-    console.log('Predicting...'); // Log the predicting message
-  
-    const formData = { 'url': uploadedFile }; 
-  
-    axios
-      .post('http://127.0.0.1:8000/api/segment', formData)                    
-      .then(response => {
-        console.log('File Url sent successfully', response.data.path);
-        setCurrentFile(response.data.path);        
-      })
-      .catch(error => {
-          console.log('Error predicting:', error)
-      });
-  };
-    
-  // const handlePrediction = async () => {
-  //   const formData = { 'url': currentFile };
-
-  //   try {
-  //     const response = await axios.post('http://localhost:8000/api/segment', formData);
-  //     console.log('File Url sent successfully', response.data.path);
-  //     setCurrentFile(response.data.path); // Update 'currentFile' in state
-  //   } catch (error) {
-  //     console.log('error', error);
-  //   }
+  // const handleReload = () => {
+  //   const data = true;
+  //   activeReload(data); 
   // };
-  
 
   return (
     <MKBox
@@ -155,7 +135,7 @@ function Visualized({height,uploadedFile,activeReload , ...rest }) {
             height={height}
             maxHeight="40rem"
             borderRadius="xl"
-            // sx={{ overflowX: "scroll", overflowY: "scroll" }}
+            sx={{ overflowX: "scroll", overflowY: "scroll" }}
             style={{ paddingLeft: '10%' }}
           >
            <Grid
@@ -167,7 +147,7 @@ function Visualized({height,uploadedFile,activeReload , ...rest }) {
                 style={{ marginTop: '0.1rem' }}
             >
                 <Grid item xs={12} lg={6} >
-                <div id="vtkContainer" style={{ width: '100%'}}></div>
+                <img src={initial} alt="image" style={{ borderRadius: "15px" }} width="140%"/>
                 </Grid>
                 <Grid item xs={12} lg={4} container direction="column" justifyContent="center" alignItems="flex-start" style={{ paddingLeft: '10%' }}>
                 <MKButton size="large" sx={{
@@ -182,20 +162,14 @@ function Visualized({height,uploadedFile,activeReload , ...rest }) {
                 <MKButton color="info" size="large" sx={{ backgroundImage: 'linear-gradient(to bottom, #30062C 0%, #30069f 50%, #30062C 100%)',
                         color: '#ffffff', // Text color
                         mb: 5, // Margin bottom
-                    }}
-                    
-                    onClick={handlePrediction}
-
-                    >
+                    }}>
                     <AccountTreeRoundedIcon sx={{ mr: 3 }}/>
                     Segment
                 </MKButton>
                 <MKButton color="info" size="large" sx={{backgroundImage: 'linear-gradient(to bottom, #30062C 0%, #30069f 50%, #30062C 100%)',
                         color: '#ffffff', // Text color
                         mb: 5, // Margin bottom
-                        }}
-                        
-                    >
+                        }}>
                     <DownloadForOfflineRoundedIcon sx={{ mr: 2 }}/>
                     <a style={{ color: 'inherit' }} href={uploadedFile} >Download</a>
                 </MKButton>

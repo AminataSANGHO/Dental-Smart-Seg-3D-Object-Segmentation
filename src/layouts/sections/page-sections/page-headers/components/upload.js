@@ -53,24 +53,17 @@ function Upload({height,handleFileUpload , ...rest}) {
   const handleInputChange = (event) => {
     const file = event.target.files[0];
     if (file) {
-      const formData = new FormData();
-      formData.append('file', file);
-      
-      axios
-          .post('http://127.0.0.1:8000/api/upload', formData, {
-            headers: {
-                "Content-Type": "multipart/form-data",
-            }
-          })                    
-          .then(response => {
-            console.log('File Url sent successfully', response.data.path);
-            handleFileUpload(response.data.path);
-          })
-          .catch(error => {
-              console.log('error', error)
-          })
-
+      handleFileUpload(file);
+      alert(`File uploaded: ${file.name}`);
     }
+    // if (file) {
+    //   const reader = new FileReader();
+    //   reader.onload = () => {
+    //     // setUploadedFile({ file, preview: reader.result });
+    //     handleFileUpload({ file, preview: reader.result });
+    //   };
+    //   reader.readAsDataURL(file);
+    // }
   };
 
 

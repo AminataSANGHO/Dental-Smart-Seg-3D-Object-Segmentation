@@ -36,6 +36,8 @@
     "react-router-dom": "6.10.0",
     "react-scripts": "5.0.1",
     "react-syntax-highlighter": "15.5.0",
+    "three": "^0.155.0",
+    "vtk.js": "^28.8.2",
     "web-vitals": "3.3.1"
   },
   "scripts": {
@@ -65,6 +67,7 @@
     ]
   },
   "devDependencies": {
+    "@babel/plugin-proposal-private-property-in-object": "^7.21.11",
     "eslint": "8.38.0",
     "eslint-config-prettier": "8.8.0",
     "eslint-plugin-import": "2.27.5",
