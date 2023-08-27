@@ -1,5 +1,3 @@
-
-// import { useState } from "react";
 import React, { useState } from 'react';
 import axios from 'axios';
 // Sections components
@@ -32,23 +30,26 @@ function PageHeaders() {
   const handleFileUpload = (file) => {
     setFileUploaded(true);
     const formData = new FormData();
-    formData.append('image', file);
+    formData.append('file', file);
 
     axios({
       method: "POST",
-      url: "http://127.0.0.1:8000/upload",
+      url: "http://127.0.0.1:8000/api/upload",
       headers: {
         "Content-Type": "multipart/form-data",
       },
       data: formData
     })
     .then(response => {
-      console.log('File uploaded successfully', response);
-      const filePath = response.data.file_path;
+      console.log('File uploaded successfully', response.data.path);
+      const filePath = response.data.path;
       console.log(filePath);
       setUploadedFile(filePath);
     })
       .catch((err) => console.log('Error uploading image:', err));
+
+      console.log("in index js uploadedFile", uploadedFile);
+
   };
 
   

@@ -1,7 +1,4 @@
-
-
 import { useState, useEffect } from "react";
-import axios from 'axios';
 // prop-types is a library for type checking of props
 import PropTypes from "prop-types";
 
@@ -54,7 +51,6 @@ function Visualized({height,uploadedFile,activeReload , ...rest }) {
 
   const [activeTab, setActiveTab] = useState(0);
   const [success, setSuccess] = useState(false);
-  const [currentFile, setCurrentFile] = useState(uploadedFile);
   const handleTabType = (event, newValue) => setActiveTab(newValue);
 
   const visualizeObj = (fileUrl) => {
@@ -106,14 +102,23 @@ function Visualized({height,uploadedFile,activeReload , ...rest }) {
 }
 
   useEffect(() => {
-    setTimeout(() => setSuccess(false), 3000);
-    visualizeObj(currentFile);
-  }, [success , currentFile]);
+    // setTimeout(() => setSuccess(false), 3000);
+    console.log("in visualised js uploadedFile", uploadedFile);
+    visualizeObj(uploadedFile);
+  }, [uploadedFile]);
 
-  // const handleReload = () => {
-  //   const data = true;
-  //   activeReload(data); 
-  // };
+  const handleFileUpload = () => {
+    const formData = {'url': uploadedFile};
+    console.log('Predecting...');
+
+    axios
+      .post("http://127.0.0.1:8000/api/segment", formData)
+      .then(response => {
+        console.log('File Url sent successfully', response.data.path);
+        uploadedFile(response.data.path);        
+      })
+        .catch((err) => console.log('Error sending image URL:', err));
+  };
 
   return (
     <MKBox
@@ -147,7 +152,8 @@ function Visualized({height,uploadedFile,activeReload , ...rest }) {
                 style={{ marginTop: '0.1rem' }}
             >
                 <Grid item xs={12} lg={6} >
-                <img src={initial} alt="image" style={{ borderRadius: "15px" }} width="140%"/>
+                {/* <img src={initial} alt="image" style={{ borderRadius: "15px" }} width="140%"/> */}
+                <div id="vtkContainer"></div>
                 </Grid>
                 <Grid item xs={12} lg={4} container direction="column" justifyContent="center" alignItems="flex-start" style={{ paddingLeft: '10%' }}>
                 <MKButton size="large" sx={{
@@ -162,7 +168,9 @@ function Visualized({height,uploadedFile,activeReload , ...rest }) {
                 <MKButton color="info" size="large" sx={{ backgroundImage: 'linear-gradient(to bottom, #30062C 0%, #30069f 50%, #30062C 100%)',
                         color: '#ffffff', // Text color
                         mb: 5, // Margin bottom
-                    }}>
+                    }}
+                    onChange={handleFileUpload}
+                    >
                     <AccountTreeRoundedIcon sx={{ mr: 3 }}/>
                     Segment
                 </MKButton>

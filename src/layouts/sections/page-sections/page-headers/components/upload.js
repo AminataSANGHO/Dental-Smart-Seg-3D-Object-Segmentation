@@ -1,5 +1,3 @@
-
-
 import { useState, useEffect } from "react";
 
 // prop-types is a library for type checking of props
@@ -54,16 +52,8 @@ function Upload({height,handleFileUpload , ...rest}) {
     const file = event.target.files[0];
     if (file) {
       handleFileUpload(file);
-      alert(`File uploaded: ${file.name}`);
     }
-    // if (file) {
-    //   const reader = new FileReader();
-    //   reader.onload = () => {
-    //     // setUploadedFile({ file, preview: reader.result });
-    //     handleFileUpload({ file, preview: reader.result });
-    //   };
-    //   reader.readAsDataURL(file);
-    // }
+  
   };
 
 
