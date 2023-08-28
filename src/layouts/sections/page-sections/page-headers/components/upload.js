@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react";
+import axios from 'axios';
 
 // prop-types is a library for type checking of props
 import PropTypes from "prop-types";
@@ -29,8 +30,6 @@ import colors from "assets/theme/base/colors";
 // Project imports
 import CenteredCard from "./centeredCard"
 
-import axios from "axios";
-
 // Images
 import objImg from "./../../../../../assets/images/obj.jpg"
 import stlImg from "./../../../../../assets/images/stl.jpg"
@@ -51,7 +50,23 @@ function Upload({height,handleFileUpload , ...rest}) {
   const handleInputChange = (event) => {
     const file = event.target.files[0];
     if (file) {
-      handleFileUpload(file);
+      // const formData = new FormData();
+      // formData.append('file', file);
+
+      // axios({
+      //   method: "POST",
+      //   url: "http://127.0.0.1:8000/api/upload",
+      //   headers: {
+      //     "Content-Type": "multipart/form-data",
+      //   },
+      //   data: formData
+      // })
+      // .then(response => {
+      //   console.log('File uploaded successfully', response.data.path);
+      // })
+      //   .catch((err) => console.log('Error uploading image:', err));
+        handleFileUpload(file);
+
     }
   
   };
@@ -92,12 +107,12 @@ function Upload({height,handleFileUpload , ...rest}) {
                 </Grid>
                 <Grid item style={{ marginTop: '1rem' }}>
                     <MKTypography variant="body1" color="text">
-                    You can load these types of 3D files.
+                    Supported File type for the moment.
                     </MKTypography>
                 </Grid>
                 <Grid container spacing={2} justifyContent="center" // Center vertically
                             alignItems="center" style={{ marginTop: '5rem' }}>
-                    <Grid item xs={3} lg={2}
+                    {/* <Grid item xs={3} lg={2}
                     style={{ cursor: 'pointer' }}
                     onClick={() => document.getElementById(`file-upload-OBJ`).click()}>
                         <CenteredCard
@@ -111,8 +126,8 @@ function Upload({height,handleFileUpload , ...rest}) {
                           onChange={handleInputChange}
                         />
 
-                    </Grid>
-                    <Grid item xs={3} lg={2}
+                    </Grid> */}
+                    {/* <Grid item xs={3} lg={2}
                     style={{ cursor: 'pointer' }}
                     onClick={() => document.getElementById(`file-upload-STL`).click()}>
                         <CenteredCard
@@ -125,7 +140,7 @@ function Upload({height,handleFileUpload , ...rest}) {
                           style={{ display: 'none' }}
                           onChange={handleInputChange}
                         />
-                    </Grid>
+                    </Grid> */}
                     <Grid item xs={3} lg={2}
                     style={{ cursor: 'pointer' }}
                     onClick={() => document.getElementById(`file-upload-VTP`).click()}>
