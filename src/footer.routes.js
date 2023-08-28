@@ -22,15 +22,15 @@ export default {
   socials: [
     {
       icon: <LinkedInIcon />,
-      link: "/",
+      link: "/a",
     },
     {
       icon: <TwitterIcon />,
-      link: "/",
+      link: "/b",
     },
     {
       icon: <GitHubIcon />,
-      link: "/",
+      link: "/c",
     },
     
   ],

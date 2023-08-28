@@ -18,6 +18,8 @@ import team3 from "assets/images/ivana-squares.jpg";
 import team4 from "assets/images/ivana-square.jpg";
 import Aminata from "assets/images/Aminata.png";
 import Ismail from "assets/images/Ismail.png";
+import Nouhaila from "assets/images/Nouhaila.png";
+import Aicha from "assets/images/Aicha.jpeg";
 
 function Team() {
   return (
@@ -57,7 +59,7 @@ function Team() {
               <HorizontalTeamCard
                 image={Ismail}
                 name="Ismail  CHAKRANE"
-                position={{ color: "info", label: "M.L and Backend Development " }}
+                position={{ color: "info", label: "Machine Learning and Backend Development " }}
                 description="ENSAM RABAT"
               />
             </MKBox>
@@ -65,20 +67,20 @@ function Team() {
           <Grid item xs={12} lg={6}>
             <MKBox mb={{ xs: 1, lg: 0 }}>
               <HorizontalTeamCard
-                image={team3}
-                name="Ivana Flow"
-                position={{ color: "info", label: "Athlete" }}
-                description="Artist is a term applied to a person who engages in an activity deemed to be an art."
+                image={Aicha}
+                name="EL KANFAOUY Aicha "
+                position={{ color: "info", label: "Data science and backend development" }}
+                description="ENSAT TANGER"
               />
             </MKBox>
           </Grid>
           <Grid item xs={12} lg={6}>
             <MKBox mb={{ xs: 1, lg: 0 }}>
               <HorizontalTeamCard
-                image={team4}
-                name="Marquez Garcia"
-                position={{ color: "info", label: "JS Developer" }}
-                description="Artist is a term applied to a person who engages in an activity deemed to be an art."
+                image={Nouhaila}
+                name="AIT BELLA Nouhaila "
+                position={{ color: "info", label: "Data science and frontend development" }}
+                description="ENSA KHOURIBGA"
               />
             </MKBox>
           </Grid>

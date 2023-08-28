@@ -22,7 +22,7 @@ function HorizontalTeamCard({ image, name, position, description,icon }) {
               src={image}
               alt={name}
               width="100%"
-              borderRadius={50}
+              borderRadius="50"
               shadow="lg"
             />
           </MKBox>
@@ -46,8 +46,8 @@ function HorizontalTeamCard({ image, name, position, description,icon }) {
 
 // Typechecking props for the HorizontalTeamCard
 HorizontalTeamCard.propTypes = {
-  image: PropTypes.string.isRequired,
-  name: PropTypes.string.isRequired,
+  image: PropTypes.string,
+  name: PropTypes.string,
   position: PropTypes.shape({
     color: PropTypes.oneOf([
       "primary",
@@ -59,9 +59,9 @@ HorizontalTeamCard.propTypes = {
       "dark",
       "light",
     ]),
-    label: PropTypes.string.isRequired,
-  }).isRequired,
-  description: PropTypes.string.isRequired,
+    label: PropTypes.string,
+  }),
+  description: PropTypes.string,
 };
 
 export default HorizontalTeamCard;

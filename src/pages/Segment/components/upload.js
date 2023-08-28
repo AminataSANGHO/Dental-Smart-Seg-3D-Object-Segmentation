@@ -4,24 +4,14 @@ import axios from 'axios';
 // prop-types is a library for type checking of props
 import PropTypes from "prop-types";
 
-// react-copy-to-clipboard components
-import { CopyToClipboard } from "react-copy-to-clipboard";
 
-// react-syntax-highlighter components
-import { Prism as SyntaxHighlighter } from "react-syntax-highlighter";
-import { prism } from "react-syntax-highlighter/dist/esm/styles/prism";
 
 // @mui material components
 import Grid from "@mui/material/Grid";
-import AppBar from "@mui/material/AppBar";
-import Tabs from "@mui/material/Tabs";
-import Tab from "@mui/material/Tab";
-import Slide from "@mui/material/Slide";
+
 
 // Material Kit 2 React components
 import MKBox from "components/MKBox";
-import MKAlert from "components/MKAlert";
-import MKButton from "components/MKButton";
 import MKTypography from "components/MKTypography";
 
 // Material Kit 2 React base styles
