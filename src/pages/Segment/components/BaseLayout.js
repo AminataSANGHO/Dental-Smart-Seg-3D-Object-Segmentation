@@ -12,6 +12,8 @@ import MKBox from "components/MKBox";
 
 // Material Kit 2 React examples
 import DefaultNavbar from "examples/Navbars/DefaultNavbar";
+import footerRoutes from "footer.routes";
+import DefaultFooter from "DefaultFooter";
 import Breadcrumbs from "examples/Breadcrumbs";
 
 // Routes
@@ -19,6 +21,7 @@ import routes from "routes";
 
 function BaseLayout({ breadcrumb, title, children }) {
   return (
+    <>
     <MKBox display="flex" flexDirection="column" bgColor="white" minHeight="100vh"
     style={{
       background: 'linear-gradient(to bottom, #30062C 0%, #30069f 50%, #30062C 100%)',
@@ -49,6 +52,11 @@ function BaseLayout({ breadcrumb, title, children }) {
         <CenteredFooter />
       </MKBox> */}
     </MKBox>
+    {/* Footer */}
+    <MKBox pt={0} px={1}  sx={{ background: "rgba(0, 0, 0)" }}>
+        <DefaultFooter content={footerRoutes} />
+      </MKBox>
+    </>
   );
 }
 
