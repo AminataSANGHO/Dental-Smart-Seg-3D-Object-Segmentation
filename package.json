@@ -1,17 +1,18 @@
 {
-  "name": "material-kit-2-react",
+  "name": "dental-smart-seg",
   "version": "2.1.0",
   "private": true,
   "author": "Creative Tim",
-  "license": "See license in https://www.creative-tim.com/license",
-  "description": "React version of Material Kit 2 by Creative Tim",
+  "license": "See license",
+  "description": "React version of Dental Smart Seg",
   "homepage": "https://demos.creative-tim.com/material-kit-react/#/",
   "bugs": {
     "url": "https://github.com/creativetimofficial/ct-material-kit-react/issues"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/creativetimofficial/ct-material-kit-react.git"
+    "url": "git+ https://github.com/AminataSANGHO/Web-App-for-3D-Object-segmentation-and-classification.git"
+   
   },
   "dependencies": {
     "@emotion/cache": "11.10.7",

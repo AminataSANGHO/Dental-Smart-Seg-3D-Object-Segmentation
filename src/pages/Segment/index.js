@@ -1,17 +1,14 @@
 import React, { useState } from 'react';
 // Sections components
-import BaseLayout from "layouts/sections/components/BaseLayout";
+import BaseLayout from './components/BaseLayout';
+
 // import View from "layouts/sections/components/View";
 
 import Upload from "./components/upload"
 import Visualized from "./components/visualised"
 
 
-// PageHeaders page components
-import HeaderOne from "layouts/sections/page-sections/page-headers/components/HeaderOne";
 
-// PageHeaders page components code
-import headerOneCode from "layouts/sections/page-sections/page-headers/components/HeaderOne/code";
 
 function Segment() {
   const [fileUploaded, setFileUploaded] = useState(false);

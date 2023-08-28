@@ -22,8 +22,7 @@ import DefaultFooter from "DefaultFooter";
 import routes from "routes";
 import footerRoutes from "footer.routes";
 
-// Images
-import bgImage from "assets/images/bg-presentation.jpg";
+
 
 import SimpleModal from "./components/SimpleModal";
 

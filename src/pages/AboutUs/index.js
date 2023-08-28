@@ -16,6 +16,7 @@ import DefaultFooter from "DefaultFooter";
 
 // About Us page sections
 import Team from "pages/AboutUs/sections/Team";
+import Supervisor from "./sections/Supervisor";
 
 // Routes
 import routes from "routes";
@@ -93,7 +94,10 @@ function AboutUs() {
       >
        
         <Team />
+        <Supervisor />
+       
       </Card>
+      
       <MKBox pt={0} px={1}  sx={{ background: "rgba(0, 0, 0)" }}>
         <DefaultFooter content={footerRoutes} />
       </MKBox>
