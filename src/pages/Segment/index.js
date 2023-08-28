@@ -2,18 +2,18 @@ import React, { useState } from 'react';
 // Sections components
 import BaseLayout from "layouts/sections/components/BaseLayout";
 // import View from "layouts/sections/components/View";
-// import Frame from "./frame";
+
 import Upload from "./components/upload"
 import Visualized from "./components/visualised"
 
 
-// // PageHeaders page components
-// import HeaderOne from "layouts/sections/page-sections/page-headers/components/HeaderOne";
+// PageHeaders page components
+import HeaderOne from "layouts/sections/page-sections/page-headers/components/HeaderOne";
 
-// // PageHeaders page components code
-// import headerOneCode from "layouts/sections/page-sections/page-headers/components/HeaderOne/code";
+// PageHeaders page components code
+import headerOneCode from "layouts/sections/page-sections/page-headers/components/HeaderOne/code";
 
-function PageHeaders() {
+function Segment() {
   const [fileUploaded, setFileUploaded] = useState(false);
   const [uploadedFile, setUploadedFile] = useState(null);
 
@@ -54,4 +54,4 @@ function PageHeaders() {
     </div>
   );
 }
-export default PageHeaders;
+export default Segment;

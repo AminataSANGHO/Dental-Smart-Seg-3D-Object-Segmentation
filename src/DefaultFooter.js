@@ -20,19 +20,19 @@ function DefaultFooter({ content }) {
   return (
     <MKBox component="footer">
       <Container>
-        <Grid container spacing={3}>
+        <Grid container spacing={3} alignItems="center">
           <Grid item xs={12} md={3} sx={{ ml: "auto", mb: 3 }}>
             <MKBox>
               <Link to={brand.route}>
-                <MKBox component="img" src={brand.image} alt={brand.name} maxWidth="2rem" mb={2} />
+                <MKBox component="img" src={brand.image} alt={brand.name} maxWidth="10rem"  mb={0}/>
               </Link>
               <MKTypography variant="h4" sx={{color:'rgb(255,255,255)'}}>{brand.name}</MKTypography>
             </MKBox>
           
           </Grid>
           
-          <Grid item xs={12} sx={{ textAlign: "center", my: 3 }}>
-            {copyright}
+          <Grid item xs={12} md={6} sx={{ ml: "auto", mb: 1 }}>
+             {copyright}
           </Grid>
         </Grid>
       </Container>

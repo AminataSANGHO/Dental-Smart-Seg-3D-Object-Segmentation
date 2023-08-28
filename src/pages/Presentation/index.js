@@ -10,24 +10,13 @@ import MKTypography from "components/MKTypography";
 import MKSocialButton from "components/MKSocialButton";
 import MKButton from "components/MKButton";
 
-import FileUploadRoundedIcon from '@mui/icons-material/FileUploadRounded';
-import HelpOutlineIcon from '@mui/icons-material/HelpOutline';
 
 // Material Kit 2 React examples
 import DefaultNavbar from "examples/Navbars/DefaultNavbar";
-import DefaultFooter from "examples/Footers/DefaultFooter";
-import FilledInfoCard from "examples/Cards/InfoCards/FilledInfoCard";
+import DefaultFooter from "DefaultFooter";
 
-// Presentation page sections
-import Counters from "pages/Presentation/sections/Counters";
-import Information from "pages/Presentation/sections/Information";
-import DesignBlocks from "pages/Presentation/sections/DesignBlocks";
-import Pages from "pages/Presentation/sections/Pages";
-import Testimonials from "pages/Presentation/sections/Testimonials";
-import Download from "pages/Presentation/sections/Download";
 
-// Presentation page components
-import BuiltByDevelopers from "pages/Presentation/components/BuiltByDevelopers";
+
 
 // Routes
 import routes from "routes";
@@ -36,7 +25,7 @@ import footerRoutes from "footer.routes";
 // Images
 import bgImage from "assets/images/bg-presentation.jpg";
 
-import SimpleModal from "./components/modal";
+// import SimpleModal from "./components/SimpleModal";
 
 
 function Presentation() {
@@ -82,7 +71,7 @@ function Presentation() {
             <MKTypography
               variant="body1"
               color="white"
-              opacity="0.8"
+              opacity={0.8}
               textAlign="center"
               px={{ xs: 6, lg: 12 }}
               mt={1}
@@ -96,17 +85,7 @@ function Presentation() {
           </Grid>
 
           <Grid item style={{ marginTop: '5rem', alignItems:'center' }}>
-          {/* <MKButton size="large" sx={{
-                        backgroundImage: 'linear-gradient(to bottom, #30062C 0%, #30069f 50%, #30062C 100%)',
-                        color: '#ffffff', // Text color
-                        mb: 5, // Margin bottom
-                        borderRadius: '50px',
-                        
-                    }}>
-                    <HelpOutlineIcon sx={{ mr: 2 }}/>
-                    Why Segment
-                </MKButton> */}
-                <SimpleModal/>
+                {/* <SimpleModal/> */}
           </Grid>
         </Container>
 
@@ -231,9 +210,9 @@ function Presentation() {
       </Card> */}
 
       {/* Footer */}
-      {/* <MKBox pt={6} px={1} mt={6}>
+      <MKBox pt={0} px={1}  sx={{ background: "rgba(0, 0, 0)" }}>
         <DefaultFooter content={footerRoutes} />
-      </MKBox> */}
+      </MKBox>
     </>
   );
 }
