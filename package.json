@@ -12,7 +12,6 @@
   "repository": {
     "type": "git",
     "url": "git+ https://github.com/AminataSANGHO/Web-App-for-3D-Object-segmentation-and-classification.git"
-   
   },
   "dependencies": {
     "@emotion/cache": "11.10.7",
@@ -27,6 +26,7 @@
     "@testing-library/user-event": "14.4.3",
     "axios": "^1.4.0",
     "chroma-js": "2.4.2",
+    "emailjs-com": "^3.2.0",
     "flatpickr": "4.6.13",
     "prop-types": "15.8.1",
     "react": "18.2.0",

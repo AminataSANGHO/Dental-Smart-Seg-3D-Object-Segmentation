@@ -9,9 +9,12 @@ import MKInput from "components/MKInput";
 import MKButton from "components/MKButton";
 import MKTypography from "components/MKTypography";
 
-// Material Kit 2 React examples
+//  examples
 import DefaultNavbar from "examples/Navbars/DefaultNavbar";
 import DefaultFooter from "DefaultFooter";
+
+// emailJS
+import emailjs from "emailjs-com";
 
 // Routes
 import routes from "routes";
@@ -21,6 +24,28 @@ import footerRoutes from "footer.routes";
 import bgImage from "assets/images/contact-bg.png";
 
 function ContactUs() {
+
+  const sendEmail = (e) => {
+    e.preventDefault();
+
+    emailjs
+      .sendForm(
+        "service_io9etx8",
+        "template_5mcmkeu",
+        document.getElementById("myForm"),
+        "mRlcztrYAzCGohzUj"
+      )
+      .then(
+        (result) => {
+          console.log("Message sent successfully:", result.text);
+          // Réinitialisez le formulaire ici
+        },
+        (error) => {
+          console.error("Error sending message:", error.text);
+        }
+      );
+  };
+
   return (
     <>
       <MKBox position="fixed" top="0.5rem" width="100%">
@@ -88,7 +113,15 @@ function ContactUs() {
               <MKTypography variant="body2" color="text" mb={3}>
                 For further questions or Informations requests,contact us using our contact form.
               </MKTypography>
-              <MKBox width="100%" component="form" method="post" autoComplete="off">
+              {/* <MKBox width="100%" component="form" method="post" autoComplete="off"> */}
+              <form id="myForm"
+                    onSubmit={(e) => {
+                      e.preventDefault(); // Empêche le comportement par défaut du formulaire
+                      sendEmail(e); // Appelle la fonction sendEmail avec l'événement e
+                    }}
+                    method="post"
+                    autoComplete="off"
+                  >
                 <Grid container spacing={3}>
                   <Grid item xs={12} md={6}>
                     <MKInput
@@ -120,11 +153,12 @@ function ContactUs() {
                   </Grid>
                 </Grid>
                 <Grid container item justifyContent="center" xs={12} mt={5} mb={2} >
-                  <MKButton type="submit" variant="gradient" color="dark">
+                  <MKButton type="submit" variant="gradient" color="dark" >
                     Send Message
                   </MKButton>
                 </Grid>
-              </MKBox>
+                </form>
+              {/* </MKBox> */}
             </MKBox>
           </MKBox>
         </Grid>

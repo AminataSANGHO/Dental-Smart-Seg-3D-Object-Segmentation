@@ -5,7 +5,7 @@ import MKTypography from "components/MKTypography";
 
 // @mui icons
 import TwitterIcon from "@mui/icons-material/Twitter";
-import GitHubIcon from "@mui/icons-material/GitHub";
+import FacebookIcon from "@mui/icons-material/Facebook";
 import LinkedInIcon from '@mui/icons-material/LinkedIn';
 
 // Images
@@ -22,15 +22,16 @@ export default {
   socials: [
     {
       icon: <LinkedInIcon />,
-      link: "/a",
+      link: "https://www.linkedin.com/company/",
+    },
+    
+    {
+      icon: <FacebookIcon />,
+      link: "https://web.facebook.com/profile.php?id=100063931760200",
     },
     {
       icon: <TwitterIcon />,
-      link: "/b",
-    },
-    {
-      icon: <GitHubIcon />,
-      link: "/c",
+      link: "https://3dsmartfactory.csit.ma/",
     },
     
   ],
