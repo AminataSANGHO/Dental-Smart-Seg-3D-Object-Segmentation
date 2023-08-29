@@ -55,7 +55,7 @@ function CenteredCard({ image, title }) {
           zIndex={1}
         />
         <MKBox
-          borderRadius="lg"
+          borderRadius={30}
           shadow="md"
           width="100%"
           height="100%"

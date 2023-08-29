@@ -23,7 +23,7 @@ import CenteredCard from "./centeredCard"
 // Images
 import objImg from "assets/images/obj.jpg"
 import stlImg from "assets/images/stl.jpg"
-import vtpImg from "assets/images/obj.jpg"
+import vtpImg from "assets/images/vtp-.png"
 
 function Upload({height,handleFileUpload , ...rest}) {
   const { grey } = colors;
@@ -136,7 +136,7 @@ function Upload({height,handleFileUpload , ...rest}) {
                     onClick={() => document.getElementById(`file-upload-VTP`).click()}>
                         <CenteredCard
                         image={vtpImg}
-                        title="VTP"/>
+                        title=".VTP"/>
                         <input
                           type="file"
                           accept=".vtp"
