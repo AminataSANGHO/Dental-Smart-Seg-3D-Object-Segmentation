@@ -16,7 +16,7 @@ fi
 echo "venv activated."
 
 echo "Installing requirements..."
-if ! pip install --no-cache-dir -r requirements.txt && pip install --no-cache-dir pygco; then
+if ! pip install --no-cache-dir -r requirements.txt && pip3 install --upgrade cython && pip install pygco; then
     echo "Error: Failed to install requirements."
     exit 1
 fi
