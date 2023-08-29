@@ -23,7 +23,7 @@ app.add_middleware(
 
 @app.get("/")
 def read_root():
-    return {"message": "Hi leeuw!"}
+    return {"message": "Hi there!"}
 
 
 @app.post("/api/v1/predict")
@@ -44,6 +44,9 @@ async def predict_and_send(file: UploadFile = File(...)):
     # Create a vedo Mesh from the processed binary data
     mesh = vedo.Mesh(temp_filepath)
     
+    # Delete the temporary file
+    os.remove(temp_filepath)
+    
     try:
         # Prediction
         out_filename = predict(config.model, mesh, filename) 
@@ -54,9 +57,6 @@ async def predict_and_send(file: UploadFile = File(...)):
         with open(os.path.join(config.OUTPUT_FOLDER, fileNameWithExt), "rb") as out_file:
             prediction_file_data = out_file.read()
 
-        # Delete the temporary file
-        os.remove(temp_filepath)
-
         # Delete files in the OUTPUT folder
         delete_temp_file(config.OUTPUT_FOLDER, out_filename)
 
@@ -64,7 +64,6 @@ async def predict_and_send(file: UploadFile = File(...)):
             "filename": fileNameWithExt,
             "prediction_file": prediction_file_data
         }
-
     except Exception as e:
         print(e)
         
