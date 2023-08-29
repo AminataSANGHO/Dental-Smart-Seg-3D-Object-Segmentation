@@ -53,4 +53,4 @@ vtk==9.2.6
 watchfiles==0.19.0
 websockets==11.0.3
 wrapt==1.15.0
-pygco==3.0.9
+pygco==0.0.16
