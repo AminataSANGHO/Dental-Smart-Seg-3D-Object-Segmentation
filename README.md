@@ -1,5 +1,4 @@
-# Web-App-for-3D-Object-segmentation-and-classification
+# Model
 
-Welcome to our cutting-edge web application project that aims to revolutionize 3D object classification and segmentation! Our goal is to provide users with a seamless and interactive experience, allowing them to upload 3D objects and receive accurate classification and segmentation results. This project harnesses the power of ReactJS, ThreeJS, Django, and Machine Learning models to achieve a state-of-the-art web app that is both intuitive and powerful.
-
+For the model we've used the pre trained MeshSegNet model from : [MeshSegNet](https://github.com/Tai-Hsien/MeshSegNet)
 
