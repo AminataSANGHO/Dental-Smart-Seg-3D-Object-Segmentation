@@ -20,6 +20,6 @@ npm start
 ### Build
 
 ```sh
-npm buils
+npm build
 ```
 
