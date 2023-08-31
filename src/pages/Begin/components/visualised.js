@@ -61,7 +61,7 @@ function Visualized({ height, uploadedFile, activeBack, predit,  ...rest }) {
   const [success, setSuccess] = useState(false);
   const handleTabType = (event, newValue) => setActiveTab(newValue);
   const [currObj, setCurrObj] = useState(uploadedFile);
-  const [currLabel, setCurrLabel] = useState("");
+  const [currLabel, setCurrLabel] = useState(predit);
 
   console.log(currObj, currLabel);
 
@@ -252,6 +252,39 @@ function Visualized({ height, uploadedFile, activeBack, predit,  ...rest }) {
 
   // };
 
+  const handleDownload = () => {
+    if(typeof currObj === 'string' && currObj.includes("<?xml")){
+      const blob = new Blob([currObj], { type: 'application/xml' });
+      const url = URL.createObjectURL(blob);
+      const a = document.createElement('a');
+      a.href = url;
+
+      const now = new Date();
+      const day = String(now.getDate()).padStart(2, '0');
+      const month = String(now.getMonth() + 1).padStart(2, '0');
+      const year = now.getFullYear();
+      const hours = String(now.getHours()).padStart(2, '0');
+      const minutes = String(now.getMinutes()).padStart(2, '0');
+      const seconds = String(now.getSeconds()).padStart(2, '0');
+
+      a.download = `segmented_${day}_${month}_${year}_${hours}_${minutes}_${seconds}.vtp`;
+      document.body.appendChild(a);
+      a.click();
+      document.body.removeChild(a);
+      URL.revokeObjectURL(url);
+    }else {
+      const url = URL.createObjectURL(currObj);
+      const link = document.createElement('a');
+      link.href = url;
+      link.type = 'application/octet-stream';
+      link.download = currObj.name.endsWith('.vtp') ? currObj.name : currObj.name + '.vtp';
+      document.body.appendChild(link);
+      link.click();
+      document.body.removeChild(link);
+      URL.revokeObjectURL(url);
+    }
+  };
+
   return (
     <MKBox
       width="100%"
@@ -285,7 +318,7 @@ function Visualized({ height, uploadedFile, activeBack, predit,  ...rest }) {
                           color: "#ffffff", // Text color
                           mr: 3, // Margin bottom
                         }}
-                        onClick={() => activeReload(true)}
+                        onClick={handleDownload}
                       >
                         <DownloadForOfflineRoundedIcon sx={{ mr: 3 }} />
                         Download
@@ -309,7 +342,7 @@ function Visualized({ height, uploadedFile, activeBack, predit,  ...rest }) {
               
           </MKBox>
         </MKBox>
-        
+
       </MKBox>
     </MKBox>
   );
