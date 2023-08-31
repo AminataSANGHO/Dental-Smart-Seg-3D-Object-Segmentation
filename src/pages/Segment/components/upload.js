@@ -21,9 +21,9 @@ import colors from "assets/theme/base/colors";
 import CenteredCard from "./centeredCard"
 
 // Images
-import objImg from "assets/images/obj.jpg"
-import stlImg from "assets/images/stl.jpg"
-import vtpImg from "assets/images/vtp-.png"
+import objImg from "assets/images/obj.png"
+// import stlImg from "assets/images/stl.jpg"
+import vtpImg from "assets/images/vtp-1.png"
 
 function Upload({height,handleFileUpload , ...rest}) {
   const { grey } = colors;
@@ -86,7 +86,7 @@ function Upload({height,handleFileUpload , ...rest}) {
                 </Grid>
                 <Grid container spacing={2} justifyContent="center" // Center vertically
                             alignItems="center" style={{ marginTop: '5rem' }}>
-                    {/* <Grid item xs={3} lg={2}
+                    <Grid item xs={3} lg={2}
                     style={{ cursor: 'pointer' }}
                     onClick={() => document.getElementById(`file-upload-OBJ`).click()}>
                         <CenteredCard
@@ -100,7 +100,7 @@ function Upload({height,handleFileUpload , ...rest}) {
                           onChange={handleInputChange}
                         />
 
-                    </Grid> */}
+                    </Grid>
                     {/* <Grid item xs={3} lg={2}
                     style={{ cursor: 'pointer' }}
                     onClick={() => document.getElementById(`file-upload-STL`).click()}>
