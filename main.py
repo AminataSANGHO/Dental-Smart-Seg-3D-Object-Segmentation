@@ -54,6 +54,7 @@ async def predict_and_send(file: UploadFile = File(...)):
         with open(os.path.join(config.OUTPUT_FOLDER, fileNameWithExt), "rb") as out_file:
             prediction_file_data = out_file.read()
 
+
         # Delete the temporary file
         os.remove(temp_filepath)
 
