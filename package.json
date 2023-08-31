@@ -14,6 +14,7 @@
     "url": "git+ https://github.com/AminataSANGHO/Web-App-for-3D-Object-segmentation-and-classification.git"
   },
   "dependencies": {
+    "@emailjs/browser": "^3.11.0",
     "@emotion/cache": "11.10.7",
     "@emotion/react": "11.10.6",
     "@emotion/styled": "11.10.6",

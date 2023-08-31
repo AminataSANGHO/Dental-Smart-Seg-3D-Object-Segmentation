@@ -61,7 +61,7 @@ function Visualized({ height, uploadedFile, activeBack, predit,  ...rest }) {
   const [success, setSuccess] = useState(false);
   const handleTabType = (event, newValue) => setActiveTab(newValue);
   const [currObj, setCurrObj] = useState(uploadedFile);
-  const [currLabel, setCurrLabel] = useState(predit);
+  const [currLabel, setCurrLabel] = useState("");
 
   console.log(currObj, currLabel);
 
@@ -262,7 +262,7 @@ function Visualized({ height, uploadedFile, activeBack, predit,  ...rest }) {
       sx={{ overflow: "hidden" }}
       {...rest}
     >
-             <Grid container justifyContent="right" // Center vertically
+      <Grid container justifyContent="right" // Center vertically
                             alignItems="center">
                   <MKButton
                         size="large"
@@ -307,9 +307,9 @@ function Visualized({ height, uploadedFile, activeBack, predit,  ...rest }) {
                id="vtkContainer"
             >
               
-            </MKBox>
           </MKBox>
-
+        </MKBox>
+        
       </MKBox>
     </MKBox>
   );

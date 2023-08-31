@@ -47,7 +47,6 @@ function Start({height,handleFileUpload ,activeUpload, ...rest}) {
     const file = event.target.files[0];
     if (file) {
         handleFileUpload(file);
-
     }
   
   };
@@ -88,7 +87,7 @@ function Start({height,handleFileUpload ,activeUpload, ...rest}) {
                 </Grid>
                 <Grid item style={{ marginTop: '1rem' }}>
                     <MKTypography variant="body1" color="text">
-                    Theses types of Files are supported .
+                    Supported Files types for this moment.
                     </MKTypography>
                 </Grid> */}
                 <Grid container spacing={5} justifyContent="center" // Center vertically
