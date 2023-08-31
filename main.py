@@ -23,7 +23,7 @@ app.add_middleware(
 
 @app.get("/")
 def read_root():
-    return {"message": "Hi leeuw!"}
+    return {"message": "Hi there!"}
 
 
 @app.post("/api/v1/predict")
@@ -54,7 +54,6 @@ async def predict_and_send(file: UploadFile = File(...)):
         with open(os.path.join(config.OUTPUT_FOLDER, fileNameWithExt), "rb") as out_file:
             prediction_file_data = out_file.read()
 
-
         # Delete the temporary file
         os.remove(temp_filepath)
 
@@ -65,7 +64,6 @@ async def predict_and_send(file: UploadFile = File(...)):
             "filename": fileNameWithExt,
             "prediction_file": prediction_file_data
         }
-
     except Exception as e:
         print(e)
         
