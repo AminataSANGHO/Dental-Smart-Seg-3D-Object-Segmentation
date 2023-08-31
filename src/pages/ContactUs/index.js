@@ -1,5 +1,5 @@
 
-
+import { useRef } from "react";
 // @mui material components
 import Grid from "@mui/material/Grid";
 
@@ -24,21 +24,22 @@ import footerRoutes from "footer.routes";
 import bgImage from "assets/images/contact-bg.png";
 
 function ContactUs() {
+  const form= useRef();
 
   const sendEmail = (e) => {
     e.preventDefault();
-
+    
     emailjs
       .sendForm(
         "service_io9etx8",
         "template_5mcmkeu",
-        document.getElementById("myForm"),
+        form.current,
         "mRlcztrYAzCGohzUj"
       )
       .then(
         (result) => {
           console.log("Message sent successfully:", result.text);
-          // Réinitialisez le formulaire ici
+          alert('Thank you for submiting your requests. We will contact you back soon');
         },
         (error) => {
           console.error("Error sending message:", error.text);
@@ -114,7 +115,7 @@ function ContactUs() {
                 For further questions or Informations requests,contact us using our contact form.
               </MKTypography>
               {/* <MKBox width="100%" component="form" method="post" autoComplete="off"> */}
-              <form id="myForm"
+              <form ref={form} id="myForm"
                     onSubmit={(e) => {
                       e.preventDefault(); // Empêche le comportement par défaut du formulaire
                       sendEmail(e); // Appelle la fonction sendEmail avec l'événement e
@@ -127,6 +128,7 @@ function ContactUs() {
                     <MKInput
                       variant="standard"
                       label="Full Name"
+                      name="from_name"
                       InputLabelProps={{ shrink: true }}
                       fullWidth
                     />
@@ -136,6 +138,7 @@ function ContactUs() {
                       type="email"
                       variant="standard"
                       label="Email"
+                      name="email_id"
                       InputLabelProps={{ shrink: true }}
                       fullWidth
                     />
@@ -144,6 +147,7 @@ function ContactUs() {
                     <MKInput
                       variant="standard"
                       label="What can we help you?"
+                      name="message"
                       placeholder="Describe your problem in at least 250 characters"
                       InputLabelProps={{ shrink: true }}
                       multiline
