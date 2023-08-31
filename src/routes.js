@@ -30,13 +30,13 @@ import Icon from "@mui/material/Icon";
 import HomeRoundedIcon from '@mui/icons-material/HomeRounded';
 import ContactsIcon from '@mui/icons-material/Contacts';
 import InfoIcon from '@mui/icons-material/Info';
-import AccountTreeRoundedIcon from '@mui/icons-material/AccountTreeRounded';
+import PlayCircleOutlineIcon from '@mui/icons-material/PlayCircleOutline';
 
 // Pages
 import Home from "layouts/pages/home";
 import ContactUs from "layouts/pages/contact-us";
 import AboutUs from "layouts/pages/about-us";
-import Segment from "layouts/pages/segment";
+import Begin from "layouts/pages/begin";
 
 
 
@@ -55,10 +55,10 @@ const routes = [
   
   {
     key:2,
-    name: "Segment",
-    icon: <AccountTreeRoundedIcon/>,
-    route: "/pages/segment",
-    component: <Segment />,
+    name: "Begin",
+    icon: <PlayCircleOutlineIcon/>,
+    route: "/pages/begin",
+    component: <Begin />,
     
   },
   {

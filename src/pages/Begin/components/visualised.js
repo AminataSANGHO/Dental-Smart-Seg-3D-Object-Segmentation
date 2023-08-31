@@ -20,6 +20,7 @@ import Icon from "@mui/material/Icon";
 import FileUploadRoundedIcon from "@mui/icons-material/FileUploadRounded";
 import DownloadForOfflineRoundedIcon from "@mui/icons-material/DownloadForOfflineRounded";
 import AccountTreeRoundedIcon from "@mui/icons-material/AccountTreeRounded";
+import ReplyIcon from '@mui/icons-material/Reply';
 
 // Material Kit 2 React components
 import MKBox from "components/MKBox";
@@ -53,14 +54,14 @@ import vtkOrientationMarkerWidget from "@kitware/vtk.js/Interaction/Widgets/Orie
 // import ThreeScene from "./display";
 // import VTKViewer from "./myVTK";
 
-function Visualized({ height, uploadedFile, activeReload, ...rest }) {
+function Visualized({ height, uploadedFile, activeBack, predit,  ...rest }) {
   const { grey } = colors;
 
   const [activeTab, setActiveTab] = useState(0);
   const [success, setSuccess] = useState(false);
   const handleTabType = (event, newValue) => setActiveTab(newValue);
   const [currObj, setCurrObj] = useState(uploadedFile);
-  const [currLabel, setCurrLabel] = useState("");
+  const [currLabel, setCurrLabel] = useState(predit);
 
   console.log(currObj, currLabel);
 
@@ -225,31 +226,31 @@ function Visualized({ height, uploadedFile, activeReload, ...rest }) {
     loadVTPTest(currObj, currLabel);
   }, [currObj, currLabel]);
 
-  const handleFileUpload = async () => {
-    document.querySelector("#vtkContainer").innerHTML = "Segmenting...";
+  // const handleFileUpload = async () => {
+  //   document.querySelector("#vtkContainer").innerHTML = "Segmenting...";
 
-    console.log("Segmenting...");
+  //   console.log("Segmenting...");
 
-    const formData = new FormData();
-    formData.append("file", currObj);
+  //   const formData = new FormData();
+  //   formData.append("file", currObj);
 
-      await axios
-      .post("http://localhost:8000/api/v1/predict/post_processing", formData)
-      .then((response) => {
-        console.log("Response ", response);
-        if (response) {
-          document.querySelector("#vtkContainer").innerHTML = "";
-          setCurrObj(response.data.prediction_file);
-          setCurrLabel("Label");
-        }
-      })
-      .catch((err) => {
-        document.querySelector("#vtkContainer").innerHTML = " ";
-        alert("Segmentation failed try again");
-        console.log("Error ", err)
-      });
+  //     await axios
+  //     .post("http://localhost:8000/api/v1/predict/post_processing", formData)
+  //     .then((response) => {
+  //       console.log("Response ", response);
+  //       if (response) {
+  //         document.querySelector("#vtkContainer").innerHTML = "";
+  //         setCurrObj(response.data.prediction_file);
+  //         setCurrLabel("Label");
+  //       }
+  //     })
+  //     .catch((err) => {
+  //       document.querySelector("#vtkContainer").innerHTML = " ";
+  //       alert("Segmentation failed try again");
+  //       console.log("Error ", err)
+  //     });
 
-  };
+  // };
 
   return (
     <MKBox
@@ -261,85 +262,54 @@ function Visualized({ height, uploadedFile, activeReload, ...rest }) {
       sx={{ overflow: "hidden" }}
       {...rest}
     >
+             <Grid container justifyContent="right" // Center vertically
+                            alignItems="center">
+                  <MKButton
+                        size="large"
+                        sx={{
+                          backgroundImage:
+                            "linear-gradient(to bottom, #30062C 0%, #30069f 50%, #30062C 100%)",
+                          color: "#ffffff", // Text color
+                          mr: 5, // Margin bottom
+                        }}
+                        onClick={() => activeBack(true)}
+                      >
+                        <ReplyIcon sx={{ mr: 4 }} />
+                        Return
+                  </MKButton>
+                  <MKButton
+                        size="large"
+                        sx={{
+                          backgroundImage:
+                            "linear-gradient(to bottom, #30062C 0%, #30069f 50%, #30062C 100%)",
+                          color: "#ffffff", // Text color
+                          mr: 3, // Margin bottom
+                        }}
+                        onClick={() => activeReload(true)}
+                      >
+                        <DownloadForOfflineRoundedIcon sx={{ mr: 3 }} />
+                        Download
+                  </MKButton>
+             </Grid>
       <MKBox display={activeTab === 0 ? "block" : "none"}>
-        <MKBox width="100%" p={3}>
-          <MKBox
-            bgColor="grey-100"
-            width="100%"
-            height={height}
-            maxHeight="40rem"
-            borderRadius="xl"
-            sx={{ overflowX: "scroll", overflowY: "scroll" }}
-            style={{ paddingLeft: "10%" }}
-          >
-            <Grid
-              container
-              direction="row" // Change direction to "row"
-              justifyContent="space-between" // Align items on the left and right
-              alignItems="center" // Center vertically
-              spacing={5}
-              style={{ marginTop: "0.1rem" }}
+       
+
+          <MKBox width="100%" p={3}>
+            <MKBox
+              bgColor="grey-100"
+              width="100%"
+              height={height}
+              maxHeight="40rem"
+              borderRadius="xl"
+              sx={{ 
+                // overflowX: "scroll", overflowY: "scroll",
+               display: "flex", alignItems: "center", justifyContent: "center" }}
+               id="vtkContainer"
             >
-              <Grid item xs={12} lg={6}>
-                {/* <img src={initial} alt="image" style={{ borderRadius: "15px" }} width="140%"/> */}
-                <div id="vtkContainer"></div>
-              </Grid>
-              <Grid
-                item
-                xs={12}
-                lg={4}
-                container
-                direction="column"
-                justifyContent="center"
-                alignItems="flex-start"
-                style={{ paddingLeft: "10%" }}
-              >
-                <MKButton
-                  size="large"
-                  sx={{
-                    backgroundImage:
-                      "linear-gradient(to bottom, #30062C 0%, #30069f 50%, #30062C 100%)",
-                    color: "#ffffff", // Text color
-                    mb: 5, // Margin bottom
-                  }}
-                  onClick={() => activeReload(true)}
-                >
-                  <FileUploadRoundedIcon sx={{ mr: 4 }} />
-                  Upload
-                </MKButton>
-                <MKButton
-                  color="info"
-                  size="large"
-                  sx={{
-                    backgroundImage:
-                      "linear-gradient(to bottom, #30062C 0%, #30069f 50%, #30062C 100%)",
-                    color: "#ffffff", // Text color
-                    mb: 5, // Margin bottom
-                  }}
-                  onClick={() => handleFileUpload()}
-                >
-                  <AccountTreeRoundedIcon sx={{ mr: 3 }} />
-                  Segment
-                </MKButton>
-                <MKButton
-                  color="info"
-                  size="large"
-                  sx={{
-                    backgroundImage:
-                      "linear-gradient(to bottom, #30062C 0%, #30069f 50%, #30062C 100%)",
-                    color: "#ffffff", // Text color
-                    mb: 5, // Margin bottom
-                  }}
-                >
-                  <DownloadForOfflineRoundedIcon sx={{ mr: 2 }} />
-                  <a style={{ color: "inherit" }} href={uploadedFile}>
-                    Download
-                  </a>
-                </MKButton>
-              </Grid>
-            </Grid>
+              
+            </MKBox>
           </MKBox>
-        </MKBox>
+
       </MKBox>
     </MKBox>
   );
