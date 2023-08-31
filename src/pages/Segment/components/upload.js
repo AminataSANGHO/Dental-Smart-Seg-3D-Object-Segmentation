@@ -40,23 +40,7 @@ function Upload({height,handleFileUpload , ...rest}) {
   const handleInputChange = (event) => {
     const file = event.target.files[0];
     if (file) {
-      // const formData = new FormData();
-      // formData.append('file', file);
-
-      // axios({
-      //   method: "POST",
-      //   url: "http://127.0.0.1:8000/api/upload",
-      //   headers: {
-      //     "Content-Type": "multipart/form-data",
-      //   },
-      //   data: formData
-      // })
-      // .then(response => {
-      //   console.log('File uploaded successfully', response.data.path);
-      // })
-      //   .catch((err) => console.log('Error uploading image:', err));
         handleFileUpload(file);
-
     }
   
   };
@@ -97,7 +81,7 @@ function Upload({height,handleFileUpload , ...rest}) {
                 </Grid>
                 <Grid item style={{ marginTop: '1rem' }}>
                     <MKTypography variant="body1" color="text">
-                    Supported File type for the moment.
+                    Supported Files types for this moment.
                     </MKTypography>
                 </Grid>
                 <Grid container spacing={2} justifyContent="center" // Center vertically

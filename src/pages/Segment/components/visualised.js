@@ -62,7 +62,7 @@ function Visualized({ height, uploadedFile, activeReload, ...rest }) {
   const [currObj, setCurrObj] = useState(uploadedFile);
   const [currLabel, setCurrLabel] = useState("");
 
-  console.log(currObj, currLabel);
+
 
   const loadVTPTest = (objData, label) => {
     const blob = new Blob([objData], { type: "text/xml" });
@@ -224,6 +224,17 @@ function Visualized({ height, uploadedFile, activeReload, ...rest }) {
   useEffect(() => {
     loadVTPTest(currObj, currLabel);
   }, [currObj, currLabel]);
+  
+  console.log("in visual", currObj, currLabel);
+
+  // axios
+  // .get("https://dentalsmartsegapi.onrender.com/")
+  // .then((response) => {
+  //   console.log("Response test", response);
+  // })
+  // .catch((err) => {
+  //   console.log("Error test", err)
+  // });
 
   const handleFileUpload = async () => {
     document.querySelector("#vtkContainer").innerHTML = "Segmenting...";
@@ -250,6 +261,40 @@ function Visualized({ height, uploadedFile, activeReload, ...rest }) {
       });
 
   };
+
+  const handleDownload = () => {
+    if(typeof currObj === 'string' && currObj.includes("<?xml")){
+      const blob = new Blob([currObj], { type: 'application/xml' });
+      const url = URL.createObjectURL(blob);
+      const a = document.createElement('a');
+      a.href = url;
+
+      const now = new Date();
+      const day = String(now.getDate()).padStart(2, '0');
+      const month = String(now.getMonth() + 1).padStart(2, '0');
+      const year = now.getFullYear();
+      const hours = String(now.getHours()).padStart(2, '0');
+      const minutes = String(now.getMinutes()).padStart(2, '0');
+      const seconds = String(now.getSeconds()).padStart(2, '0');
+
+      a.download = `segmented_${day}_${month}_${year}_${hours}_${minutes}_${seconds}.vtp`;
+      document.body.appendChild(a);
+      a.click();
+      document.body.removeChild(a);
+      URL.revokeObjectURL(url);
+    }else {
+      const url = URL.createObjectURL(currObj);
+      const link = document.createElement('a');
+      link.href = url;
+      link.type = 'application/octet-stream';
+      link.download = currObj.name.endsWith('.vtp') ? currObj.name : currObj.name + '.vtp';
+      document.body.appendChild(link);
+      link.click();
+      document.body.removeChild(link);
+      URL.revokeObjectURL(url);
+    }
+  };
+
 
   return (
     <MKBox
@@ -280,7 +325,7 @@ function Visualized({ height, uploadedFile, activeReload, ...rest }) {
               spacing={5}
               style={{ marginTop: "0.1rem" }}
             >
-              <Grid item xs={12} lg={6}>
+              <Grid item xs={13} lg={7}>
                 {/* <img src={initial} alt="image" style={{ borderRadius: "15px" }} width="140%"/> */}
                 <div id="vtkContainer"></div>
               </Grid>
@@ -330,11 +375,11 @@ function Visualized({ height, uploadedFile, activeReload, ...rest }) {
                     color: "#ffffff", // Text color
                     mb: 5, // Margin bottom
                   }}
+
+                  onClick={() => handleDownload()}
                 >
                   <DownloadForOfflineRoundedIcon sx={{ mr: 2 }} />
-                  <a style={{ color: "inherit" }} href={uploadedFile}>
                     Download
-                  </a>
                 </MKButton>
               </Grid>
             </Grid>
