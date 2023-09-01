@@ -108,7 +108,7 @@ function Start({height,handleFileUpload ,activeUpload, ...rest}) {
                     >
                     <input
                           type="file"
-                          accept=".vtp"
+                          accept=".vtp, .obj"
                           id={`file-upload-VTP`}
                           style={{ display: 'none' }}
                           onChange={handleInputChange}

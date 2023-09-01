@@ -63,17 +63,81 @@ function Visualized({ height, uploadedFile, activeBack, predit,  ...rest }) {
   const [currObj, setCurrObj] = useState(uploadedFile);
   const [currLabel, setCurrLabel] = useState(predit);
 
+
+  const objVisualised = async (currObj) => {
+
+    const formData = new FormData();
+    formData.append("file", currObj);
+
+    let objFilePath = null;
+
+    await axios
+      .post("http://localhost:8000/api/upload_obj_file", formData)
+      .then((response) => {
+        console.log("Response ", response);
+        if (response) {
+          objFilePath = "http://localhost:8000/" + response.data.path;
+        }
+      })
+      .catch((err) => {
+        console.log("Error ", err);
+      });
+
+    const vtkRenderScreen = vtkFullScreenRenderWindow.newInstance({
+      container: document.querySelector("#vtkContainer"),
+      background: [0, 0, 0],
+    });
+
+    if(objFilePath){
+      const reader = vtkOBJReader.newInstance();
+      reader.setUrl(objFilePath);
+  
+      reader.loadData().then(() => {
+        // Create mapper and actor
+        const mapper = vtkMapper.newInstance();
+        mapper.setInputData(reader.getOutputData());
+  
+        const actor = vtkActor.newInstance();
+        actor.setMapper(mapper);
+  
+        // create orientation widget
+        const axes = vtkAxesActor.newInstance();
+        const orientationWidget = vtkOrientationMarkerWidget.newInstance({
+          actor: axes,
+          interactor: vtkRenderScreen.getRenderWindow().getInteractor(),
+        });
+        orientationWidget.setEnabled(true);
+        orientationWidget.setViewportCorner(vtkOrientationMarkerWidget.Corners.BOTTOM_RIGHT);
+  
+        orientationWidget.setViewportSize(0.15);
+        orientationWidget.setMinPixelSize(100);
+        orientationWidget.setMaxPixelSize(300);
+  
+        vtkRenderScreen.getRenderer().addActor(actor);
+        vtkRenderScreen.getRenderer().resetCamera();
+  
+        //Start rendering
+        vtkRenderScreen.getRenderWindow().render();
+      });
+    }
+
+  };
+
   console.log(currObj, currLabel);
 
   const loadVTPTest = (objData, label) => {
     const blob = new Blob([objData], { type: "text/xml" });
     const vtpFilePath = URL.createObjectURL(blob);
 
-    if (label === "") {
-      // const parts = objData.name.split(".");
-      // const extension = parts[parts.length - 1];
-      // if (extension === "obj")
+    var parts = objData.name.split(".");
+    var extObj = parts[parts.length - 1];
 
+    if(extObj === "obj"){
+      objVisualised(objData);
+      return;
+    }
+
+    if (label === "") {
       const vtkRenderScreen = vtkFullScreenRenderWindow.newInstance({
         container: document.querySelector("#vtkContainer"),
         background: [0, 0, 0],
@@ -226,32 +290,6 @@ function Visualized({ height, uploadedFile, activeBack, predit,  ...rest }) {
     loadVTPTest(currObj, currLabel);
   }, [currObj, currLabel]);
 
-  // const handleFileUpload = async () => {
-  //   document.querySelector("#vtkContainer").innerHTML = "Segmenting...";
-
-  //   console.log("Segmenting...");
-
-  //   const formData = new FormData();
-  //   formData.append("file", currObj);
-
-  //     await axios
-  //     .post("http://localhost:8000/api/v1/predict/post_processing", formData)
-  //     .then((response) => {
-  //       console.log("Response ", response);
-  //       if (response) {
-  //         document.querySelector("#vtkContainer").innerHTML = "";
-  //         setCurrObj(response.data.prediction_file);
-  //         setCurrLabel("Label");
-  //       }
-  //     })
-  //     .catch((err) => {
-  //       document.querySelector("#vtkContainer").innerHTML = " ";
-  //       alert("Segmentation failed try again");
-  //       console.log("Error ", err)
-  //     });
-
-  // };
-
   const handleDownload = () => {
     if(typeof currObj === 'string' && currObj.includes("<?xml")){
       const blob = new Blob([currObj], { type: 'application/xml' });
@@ -277,7 +315,15 @@ function Visualized({ height, uploadedFile, activeBack, predit,  ...rest }) {
       const link = document.createElement('a');
       link.href = url;
       link.type = 'application/octet-stream';
-      link.download = currObj.name.endsWith('.vtp') ? currObj.name : currObj.name + '.vtp';
+
+      var parts = currObj.name.split(".");
+      var ext = parts[parts.length - 1];
+
+      if(ext === "vtp") {
+        link.download = currObj.name + '.vtp';
+      } else {
+        link.download = currObj.name;
+      }
       document.body.appendChild(link);
       link.click();
       document.body.removeChild(link);

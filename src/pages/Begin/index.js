@@ -18,12 +18,6 @@ function Begin() {
   const [active,setActive]= useState(false);
   const [predit, setPredit] = useState("");
 
-  // const handleReload = (data) => {
-  //   if (data) {
-  //     setFileUploaded(false);
-  //   }
-  // };
-
   const handleFileUpload = (url) => {
     setFileUploaded(true);
     setBack(false);

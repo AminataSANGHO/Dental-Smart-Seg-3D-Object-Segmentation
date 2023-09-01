@@ -51,12 +51,6 @@ function Upload({height,handleFileUpload,handleBack ,handlePredit , ...rest}) {
     }
   
   };
-  // const handleSegment = () => {
-  //   if(file){
-  //     handleFileUpload(file);
-  //   }
-    
-  // };
 
   const handlePrediction = async () => {
     document.querySelector("#vtkContainer").innerHTML = "Segmenting...";
@@ -74,8 +68,6 @@ function Upload({height,handleFileUpload,handleBack ,handlePredit , ...rest}) {
           document.querySelector("#vtkContainer").innerHTML = "";
           handleFileUpload(response.data.prediction_file)
           handlePredit("Label");
-          // setCurrObj(response.data.prediction_file);
-          // setCurrLabel("Label");
         }
       })
       .catch((err) => {
@@ -151,7 +143,7 @@ function Upload({height,handleFileUpload,handleBack ,handlePredit , ...rest}) {
                 </Grid>
                 <Grid item style={{ marginTop: '1rem' }}>
                     <MKTypography variant="body1" color="text">
-                    Theses types of Files are supported .
+                    Theses types of Files are supported
                     </MKTypography>
                 </Grid>
                 <Grid container spacing={2} justifyContent="center" // Center vertically
