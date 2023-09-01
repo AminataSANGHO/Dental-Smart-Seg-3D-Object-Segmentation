@@ -5,6 +5,7 @@ import vedo
 from model import predict , predict_alpha
 from helpers import create_temp_file, delete_temp_file
 from config import AppConfig
+from fastapi.staticfiles import StaticFiles
 
 
 app = FastAPI()
@@ -21,10 +22,25 @@ app.add_middleware(
     allow_headers=["*"],
 )
 
+# Determine the current working directory and append "/temp" to it
+static_directory = os.path.join(os.getcwd(), "temp")
+
+# Mount the static directory as a route
+app.mount("/temp", StaticFiles(directory=static_directory), name="temp")
+
 @app.get("/")
 def read_root():
     return {"message": "Hi there!"}
 
+@app.post("/api/upload_obj_file")
+async def upload(file: UploadFile = File(...)):
+    file_contents = await file.read()
+
+    temp_filepath = create_temp_file(config.TEMP_FOLDER, file.filename, file_contents)
+
+    return{
+        "path": temp_filepath,
+    }
 
 @app.post("/api/v1/predict")
 async def predict_and_send(file: UploadFile = File(...)):
