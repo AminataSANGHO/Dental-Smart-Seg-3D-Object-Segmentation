@@ -1,9 +1,9 @@
 {
-  "short_name": "Material Kit",
-  "name": "Material Kit 2 React",
+  "short_name": "Dental Smart Seg",
+  "name": "Dental Smart Seg",
   "icons": [
     {
-      "src": "favicon.png",
+      "src": "Logo-dark-bg.png",
       "sizes": "64x64 32x32 24x24 16x16",
       "type": "image/png"
     }

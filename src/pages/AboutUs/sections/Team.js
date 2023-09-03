@@ -12,10 +12,6 @@ import MKTypography from "components/MKTypography";
 import HorizontalTeamCard from "./HorizontalTeamCard";
 
 // Images
-import team1 from "assets/images/team-5.jpg";
-import team2 from "assets/images/bruce-mars.jpg";
-import team3 from "assets/images/ivana-squares.jpg";
-import team4 from "assets/images/ivana-square.jpg";
 import Aminata from "assets/images/Aminata.png";
 import Ismail from "assets/images/Ismail.png";
 import Nouhaila from "assets/images/Nouhaila.png";

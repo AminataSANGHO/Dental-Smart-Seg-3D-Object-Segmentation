@@ -27,7 +27,8 @@ import AccountTreeRoundedIcon from '@mui/icons-material/AccountTreeRounded';
 // Images
 import objImg from "assets/images/obj.png"
 // import stlImg from "assets/images/stl.jpg"
-import vtpImg from "assets/images/vtp-1.png"
+import vtpImg from "assets/images/vtp.png"
+// import vkp from "assets/images";
 
 function Upload({height,handleFileUpload,handleBack ,handlePredit , ...rest}) {
   const { grey } = colors;

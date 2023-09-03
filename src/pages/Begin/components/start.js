@@ -16,7 +16,7 @@ import MKTypography from "components/MKTypography";
 import MKButton from "components/MKButton";
 
 
-import FileUploadRoundedIcon from "@mui/icons-material/FileUploadRounded";
+
 import AccountTreeRoundedIcon from '@mui/icons-material/AccountTreeRounded';
 import ViewInArIcon from '@mui/icons-material/ViewInAr';
 
@@ -26,10 +26,7 @@ import colors from "assets/theme/base/colors";
 // Project imports
 import CenteredCard from "./centeredCard"
 
-// Images
-import objImg from "assets/images/obj.png"
-// import stlImg from "assets/images/stl.jpg"
-import vtpImg from "assets/images/vtp-1.png"
+
 
 function Start({height,handleFileUpload ,activeUpload, ...rest}) {
   const { grey } = colors;
@@ -81,15 +78,7 @@ function Start({height,handleFileUpload ,activeUpload, ...rest}) {
             alignItems="center" // Center horizontally
             spacing={2}
             >
-                {/* <Grid item style={{ marginTop: '5rem' }}>
-                    <MKTypography variant="h1" sx={{ color: '#30062C'}}>
-                    UpLoad</MKTypography>
-                </Grid>
-                <Grid item style={{ marginTop: '1rem' }}>
-                    <MKTypography variant="body1" color="text">
-                    Supported Files types for this moment.
-                    </MKTypography>
-                </Grid> */}
+               
                 <Grid container spacing={5} justifyContent="center" // Center vertically
                             alignItems="center" style={{ marginTop: '15rem' }}>
 
@@ -133,49 +122,7 @@ function Start({height,handleFileUpload ,activeUpload, ...rest}) {
 
 
 
-                    {/* <Grid item xs={3} lg={2}
-                    style={{ cursor: 'pointer' }}
-                    onClick={() => document.getElementById(`file-upload-OBJ`).click()}>
-                        <CenteredCard
-                        image={objImg}
-                        title="OBJ"/>
-                         <input
-                          type="file"
-                          accept=".obj"
-                          id={`file-upload-OBJ`}
-                          style={{ display: 'none' }}
-                          onChange={handleInputChange}
-                        />
-
-                    </Grid> */}
-                    {/* <Grid item xs={3} lg={2}
-                    style={{ cursor: 'pointer' }}
-                    onClick={() => document.getElementById(`file-upload-STL`).click()}>
-                        <CenteredCard
-                        image={stlImg}
-                        title="STL"/>
-                        <input
-                          type="file"
-                          accept=".stl"
-                          id={`file-upload-STL`}
-                          style={{ display: 'none' }}
-                          onChange={handleInputChange}
-                        />
-                    </Grid> */}
-                    {/* <Grid item xs={3} lg={2}
-                    style={{ cursor: 'pointer' }}
-                    onClick={() => document.getElementById(`file-upload-VTP`).click()}>
-                        <CenteredCard
-                        image={vtpImg}
-                        title=".VTP"/>
-                        <input
-                          type="file"
-                          accept=".vtp"
-                          id={`file-upload-VTP`}
-                          style={{ display: 'none' }}
-                          onChange={handleInputChange}
-                        />
-                    </Grid> */}
+                   
                 </Grid>
                 
             </Grid>

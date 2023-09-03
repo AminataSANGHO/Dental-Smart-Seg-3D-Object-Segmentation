@@ -22,8 +22,7 @@ import Supervisor from "./sections/Supervisor";
 import routes from "routes";
 import footerRoutes from "footer.routes";
 
-// Images
-import bgImage from "assets/images/bg3.jpg";
+
 
 function AboutUs() {
   return (

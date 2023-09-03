@@ -31,12 +31,14 @@ import HomeRoundedIcon from '@mui/icons-material/HomeRounded';
 import ContactsIcon from '@mui/icons-material/Contacts';
 import InfoIcon from '@mui/icons-material/Info';
 import PlayCircleOutlineIcon from '@mui/icons-material/PlayCircleOutline';
+import DescriptionIcon from '@mui/icons-material/Description';
 
 // Pages
 import Home from "layouts/pages/home";
 import ContactUs from "layouts/pages/contact-us";
 import AboutUs from "layouts/pages/about-us";
 import Begin from "layouts/pages/begin";
+import Docs from "layouts/pages/docs";
 
 
 
@@ -52,9 +54,17 @@ const routes = [
     component: <Home />,
     
   },
-  
   {
     key:2,
+    name: "Docs",
+    icon: <DescriptionIcon/>,
+    route: "/pages/docs",
+    component: <Docs />,
+    
+  },
+  
+  {
+    key:3,
     name: "Begin",
     icon: <PlayCircleOutlineIcon/>,
     route: "/pages/begin",
@@ -62,7 +72,7 @@ const routes = [
     
   },
   {
-    key:3,
+    key:4,
     name: "about us",
     icon: <InfoIcon/>,
     route: "/pages/about-us",
@@ -70,7 +80,7 @@ const routes = [
     
   },
   {
-    key:4,
+    key:5,
     name: "contact us",
     icon: <ContactsIcon/>,
     route: "/pages/contact-us",
