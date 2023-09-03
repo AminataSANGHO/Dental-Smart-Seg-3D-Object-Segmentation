@@ -5,6 +5,6 @@ Welcome to our cutting-edge web application project that aims to revolutionize 3
 ## For more details checkout the branches :
 
 - Frontend -> for the frontend part using ReactJS
-- Backend -> for the backend part using FastAPI
+- API-Backend -> for the backend part using FastAPI
 - Model -> for the MeshSegNet Model
 
