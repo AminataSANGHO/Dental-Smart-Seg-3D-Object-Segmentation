@@ -1,4 +1,5 @@
-# SegTeeth-api
+
+This is the API (FastAPI) used for the backend web app
 
 
 ## installation (new)
@@ -52,5 +53,3 @@ Without post-proccessing (this will not give a good result)
 
 With post-proccessing (the segmentation with post=proccessing will be mush precise)
 
-
-so you can use `localhost:8000/api/v1/predict` make sure to call this endpoit with post method.
