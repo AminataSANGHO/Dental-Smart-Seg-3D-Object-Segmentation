@@ -112,12 +112,13 @@ function Visualized({ height, uploadedFile, activeBack, predit,  ...rest }) {
     const blob = new Blob([objData], { type: "text/xml" });
     const vtpFilePath = URL.createObjectURL(blob);
 
-    var parts = objData.name.split(".");
-    var extObj = parts[parts.length - 1];
-
-    if(extObj === "obj"){
-      objVisualised(objData);
-      return;
+    if(objData.name) {
+      let parts = objData.name.split(".");
+      let extObj = parts[parts.length - 1];
+      if(extObj === "obj"){
+        objVisualised(objData);
+        return;
+      }
     }
 
     if (label === "") {
@@ -301,12 +302,7 @@ function Visualized({ height, uploadedFile, activeBack, predit,  ...rest }) {
 
       var parts = currObj.name.split(".");
       var ext = parts[parts.length - 1];
-
-      if(ext === "vtp") {
-        link.download = currObj.name + '.vtp';
-      } else {
-        link.download = currObj.name;
-      }
+      link.download = currObj.name;
       document.body.appendChild(link);
       link.click();
       document.body.removeChild(link);
