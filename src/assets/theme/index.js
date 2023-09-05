@@ -2,9 +2,8 @@
 
 // @mui material components
 import { createTheme } from "@mui/material/styles";
-// import Fade from "@mui/material/Fade";
 
-// Material Kit 2 React base styles
+// React base styles
 import colors from "assets/theme/base/colors";
 import breakpoints from "assets/theme/base/breakpoints";
 import typography from "assets/theme/base/typography";
