@@ -22,7 +22,7 @@ function HorizontalTeamCard({ image, name, position, description,icon }) {
               src={image}
               alt={name}
               width="100%"
-              borderRadius={50}
+              borderRadius="xxl"
               shadow="lg"
             />
           </MKBox>

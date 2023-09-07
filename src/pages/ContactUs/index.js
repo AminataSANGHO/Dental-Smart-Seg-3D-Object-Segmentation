@@ -49,11 +49,13 @@ function ContactUs() {
 
   return (
     <>
-      
-        <DefaultNavbar
-          routes={routes}
-          light
-        />
+        
+      <div style={{paddingTop: '1rem'}}>
+          <DefaultNavbar
+              routes={routes}
+              light
+            />
+      </div>
         
       <Grid container spacing={3} alignItems="center" 
       style={{

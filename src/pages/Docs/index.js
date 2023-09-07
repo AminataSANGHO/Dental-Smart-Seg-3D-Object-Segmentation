@@ -192,25 +192,8 @@ function Docs() {
                     Technologies
                 </MKTypography>
 
-                {/* <MKBox 
-                borderRadius="xxl"
-                my={3}
-                style={{
-                    background: 'rgba(255, 255, 255, 0.8)',
-                    padding: '1%',
-                    
-                }}>
-                    <MKTypography
-                    variant="body1"
-                    color="dark"
-                    px={{ xs: 6, lg: 12 }}
-                    mt={1}
-                    ml={0}
-                    >            
-                   The app has been developping
-                    </MKTypography>
-            </MKBox> */}
-            <Stack direction="row" spacing={5} style={{marginBottom: '1rem'}}>
+            
+            <Stack direction="row" spacing={5} style={{marginBottom: '0.3rem'}}>
                 <Tooltip title="ReactJS" placement="top">
                     <img src={reat} alt="react" width='15%' height='50%'/>
                 </Tooltip>
@@ -228,18 +211,18 @@ function Docs() {
                 </Tooltip>
                 
             </Stack>
-            <Stack direction="row" spacing={4} style={{marginBottom: '3rem'}}>
+            <Stack direction="row" spacing={6} style={{marginBottom: '3rem'}}>
                 <Tooltip title="FastAPI" placement="top">
-                 <img src={fast} alt="react"width='15%' height='50%'/>
+                 <img src={fast} alt="react"width='15%' height='100%'/>
                 </Tooltip>
                 <Tooltip title="PyTorch" placement="top">
-                    <img src={pytorch} alt="react"width='15%' height='50%'/>
+                    <img src={pytorch} alt="react"width='15%' height='100%'/>
                 </Tooltip>
                 <Tooltip title="Paraview" placement="top">
-                    <img src={paraview} alt="react"width='15%' height='50%'/>
+                    <img src={paraview} alt="react"width='15%' height='80%'/>
                 </Tooltip>
                 <Tooltip title="VTK.JS " placement="top">
-                    <img src={vkt} alt="react"width='15%' height='50%'/>
+                    <img src={vkt} alt="react"width='15%' height='80%'/>
                 </Tooltip>
                
                 
