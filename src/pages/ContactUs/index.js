@@ -49,13 +49,12 @@ function ContactUs() {
 
   return (
     <>
-      <MKBox position="fixed" top="0.5rem" width="100%">
+      
         <DefaultNavbar
           routes={routes}
-          // transparent
           light
         />
-      </MKBox>
+        
       <Grid container spacing={3} alignItems="center" 
       style={{
         background: 'linear-gradient(to bottom, #30062C 0%, #30069f 50%, #30062C 100%)',
