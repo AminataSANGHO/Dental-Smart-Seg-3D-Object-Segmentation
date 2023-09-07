@@ -5,5 +5,5 @@ Welcome to our cutting-edge web application project that aims to revolutionize 3
 ## For more details checkout the branches :
 
 - frontend -> for the frontend part using ReactJS
-- API-Backend -> for the backend part using FastAPI
+- API-backend -> for the backend part using FastAPI
 
