@@ -176,7 +176,7 @@ function Docs() {
             <Grid container justifyContent='left' alignContent='center' style={{ marginTop: '2rem' , color: '#fff'}}>
                 <Looks3Icon fontSize="large" />
                 <MKTypography
-                    ml= {2}
+                    ml= {5}
                     mb= {5}
                     color="white"
 
@@ -210,38 +210,35 @@ function Docs() {
                    The app has been developping
                     </MKTypography>
             </MKBox> */}
-            <Stack direction="row" spacing={5} style={{marginBottom: '1rem'}}>
+            
+            <Stack direction="row" spacing={2} style={{marginBottom: '4rem'}}>
                 <Tooltip title="ReactJS" placement="top">
-                    <img src={reat} alt="react" width='15%' height='50%'/>
+                    <img src={reat} alt="react" width='50' height='50'/>
                 </Tooltip>
                 <Tooltip title="VScode" placement="top">
-                    <img src={vscode} alt="react" width='15%' height='50%'/>
+                    <img src={vscode} alt="react" width='50' height='50'/>
                 </Tooltip>
                 <Tooltip title="GitHub" placement="top">
-                    <img src={github} alt="react" width='15%' height='50%'/>
+                    <img src={github} alt="react" width='50' height='50'/>
                 </Tooltip>
                 <Tooltip title="Google Colab" placement="top">
-                    <img src={colab} alt="react"width='15%' height='50%'/>
+                    <img src={colab} alt="react" width='90' height='50'/>
                 </Tooltip>
                 <Tooltip title="NodeJS" placement="top">
-                    <img src={node} alt="react"width='15%' height='50%'/>
+                    <img src={node} alt="react" width='90' height='50'/>
                 </Tooltip>
-                
-            </Stack>
-            <Stack direction="row" spacing={4} style={{marginBottom: '3rem'}}>
                 <Tooltip title="FastAPI" placement="top">
-                 <img src={fast} alt="react"width='15%' height='50%'/>
+                 <img src={fast} alt="react"width='120' height='50'/>
                 </Tooltip>
                 <Tooltip title="PyTorch" placement="top">
-                    <img src={pytorch} alt="react"width='15%' height='50%'/>
+                    <img src={pytorch} alt="react"width='120' height='50'/>
                 </Tooltip>
                 <Tooltip title="Paraview" placement="top">
-                    <img src={paraview} alt="react"width='15%' height='50%'/>
+                    <img src={paraview} alt="react"width='120' height='50'/>
                 </Tooltip>
                 <Tooltip title="VTK.JS " placement="top">
-                    <img src={vkt} alt="react"width='15%' height='50%'/>
+                    <img src={vkt} alt="react"width='120' height='50'/>
                 </Tooltip>
-               
                 
             </Stack>
             </Grid>
