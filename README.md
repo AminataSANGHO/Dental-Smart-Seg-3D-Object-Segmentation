@@ -7,5 +7,4 @@ Welcome to our cutting-edge web application project that aims to revolutionize 3
 - Frontend -> for the frontend part using ReactJS
 - API-Backend -> for the backend part using FastAPI
 - Model -> for the MeshSegNet Model
-- Report -> for the report of this project
 
