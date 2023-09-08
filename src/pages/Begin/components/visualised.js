@@ -111,15 +111,17 @@ function Visualized({ height, uploadedFile, activeBack, predit,  ...rest }) {
   const loadVTPTest = (objData, label) => {
     const blob = new Blob([objData], { type: "text/xml" });
     const vtpFilePath = URL.createObjectURL(blob);
-
-    var parts = objData.name.split(".");
-    var extObj = parts[parts.length - 1];
-
-    if(extObj === "obj"){
-      objVisualised(objData);
-      return;
+    
+    if(objData.name){
+      let parts = objData.name.split(".");
+      let extObj = parts[parts.length - 1];
+  
+      if(extObj === "obj"){
+        objVisualised(objData);
+        return;
+      }
     }
-
+    
     if (label === "") {
       const vtkRenderScreen = vtkFullScreenRenderWindow.newInstance({
         container: document.querySelector("#vtkContainer"),
